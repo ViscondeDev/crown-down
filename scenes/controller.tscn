@@ -4,3 +4,17 @@
 
 [node name="Controller" type="Node" unique_id=1204514521]
 script = ExtResource("1_60fnl")
+
+[node name="Scene" type="Node" parent="." unique_id=1119029215]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=522321669]
+
+[node name="ScreenCover" type="ColorRect" parent="CanvasLayer" unique_id=847902699]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
