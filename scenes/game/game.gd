@@ -49,8 +49,6 @@ func _load_level(to_load: int):
 		1:
 			loaded_scene = load("res://scenes/levels/level1.tscn")
 		2:
-			loaded_scene = load("res://scenes/levels/level3.tscn")
-		3:
 			loaded_scene = load("res://scenes/levels/level2.tscn")
 
 	current_instance = loaded_scene.instantiate()

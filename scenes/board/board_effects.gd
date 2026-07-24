@@ -9,8 +9,8 @@ enum Effect {
 
 var highlight_duration: float = 0.3
 var effect_tiles := {
-	Effect.AVALIABLE: Vector2(3, 3),
-	Effect.THRETENED: Vector2(3, 4),
+	Effect.AVALIABLE: Vector2(3, 4),
+	Effect.THRETENED: Vector2(3, 5),
 }
 
 
