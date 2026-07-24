@@ -21,7 +21,7 @@ gdscript/warnings/static_called_on_instance=0
 
 [display]
 
-window/size/viewport_width=426
+window/size/viewport_width=400
 window/size/viewport_height=240
 window/stretch/mode="canvas_items"
 

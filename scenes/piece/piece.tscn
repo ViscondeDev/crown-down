@@ -12,9 +12,10 @@ metadata/_custom_type_script = "uid://0j5eilfv1wyw"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1722815939]
 unique_name_in_owner = true
-position = Vector2(0, -16)
+position = Vector2(0, -8)
 texture = ExtResource("2_i7cdl")
 hframes = 4
+vframes = 2
 
 [node name="PieceMovement" type="AnimationPlayer" parent="." unique_id=1802832763 node_paths=PackedStringArray("body")]
 unique_name_in_owner = true
@@ -22,5 +23,5 @@ script = ExtResource("3_i7cdl")
 body = NodePath("..")
 movement_curve = ExtResource("4_ajk4a")
 tilt_curve = ExtResource("5_mu34b")
-movement_duration = 0.4
+movement_duration = 0.8
 metadata/_custom_type_script = "uid://oeyu1nrn22mj"

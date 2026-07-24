@@ -21,13 +21,14 @@ func _ready():
 
 func move_to_tile(tile: Vector2i) -> void:
 	if tile in possible_moves:
-
+		sprite.frame_coords.y += 1
 		movement_animation.queue_movement(
 			Board.current_board.map_to_local(current_board_position),
 			Board.current_board.map_to_local(tile),
 		)
 		await movement_animation.movement_finished
 
+		sprite.frame_coords.y -= 1
 		if (
 			tile in Board.current_board.pieces.keys()
 			and Board.current_board.pieces[tile].is_friendly != is_friendly
@@ -36,6 +37,7 @@ func move_to_tile(tile: Vector2i) -> void:
 		Board.current_board.pieces.erase(current_board_position)
 		current_board_position = tile
 		Board.current_board.pieces[tile] = self
+		Board.effects_layer.clear()
 		Level.current.finish_turn()
 	else:
 		push_warning(name, " tried to move to invalid tile.")
