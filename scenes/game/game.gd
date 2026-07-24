@@ -41,18 +41,15 @@ func _ready() -> void:
 
 
 func _load_level(to_load: int):
-	if to_load > 1:
-		quit.emit()
-
 	if current_instance != null:
 		current_instance.queue_free()
 	add_child(loadscreen_instance)
-
+	print(to_load)
 	match to_load:
 		1:
-			loaded_scene = load("res://scenes/levels/level.tscn")
+			loaded_scene = load("res://scenes/levels/level1.tscn")
 		2:
-			loaded_scene = load("res://scenes/levels/level2.tscn")
+			loaded_scene = load("uid://b8f32pph3xwk5")
 
 	current_instance = loaded_scene.instantiate()
 	current_instance.state_changed.connect(_update_state)
@@ -60,6 +57,7 @@ func _load_level(to_load: int):
 
 	remove_child(loadscreen_instance)
 	world.add_child(current_instance)
+	Level.current.update_selection.emit(Selection.ROOK, SelectionState.NONE)
 
 
 func _update_state(new_state: GameState):

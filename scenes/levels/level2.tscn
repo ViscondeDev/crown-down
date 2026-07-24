@@ -50,7 +50,7 @@ movement_type = SubResource("Resource_7pb6i")
 
 [node name="Pawn" parent="." unique_id=619880526 instance=ExtResource("9_yhrca")]
 unique_name_in_owner = true
-position = Vector2(232, 88)
+position = Vector2(104, 136)
 is_friendly = true
 
 [node name="EnemyAI" type="Node" parent="." unique_id=179269147]

@@ -45,6 +45,6 @@ func get_taken() -> void:
 	if is_friendly:
 		Level.current.end_game(Level.State.LOST)
 	Board.current_board.pieces.erase(current_board_position)
-	if Board.current_board.pieces.is_empty():
+	if Board.current_board.pieces.size() == 1:
 		Level.current.end_game(Level.State.WON)
 	queue_free()

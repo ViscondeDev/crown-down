@@ -14,9 +14,8 @@ metadata/_custom_type_script = "uid://d1su2tahy25pt"
 unique_name_in_owner = true
 position = Vector2(0, -16)
 texture = ExtResource("2_f0taw")
-hframes = 3
-vframes = 2
-frame = 2
+hframes = 4
+frame = 3
 
 [node name="PieceMovement" type="AnimationPlayer" parent="." unique_id=1184581654 node_paths=PackedStringArray("body")]
 unique_name_in_owner = true
@@ -27,6 +26,7 @@ tilt_curve = ExtResource("5_xgbuj")
 metadata/_custom_type_script = "uid://oeyu1nrn22mj"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=353904607]
+zoom = Vector2(1.5, 1.5)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.5
