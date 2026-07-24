@@ -3,9 +3,13 @@ extends Node
 const SAVE_FILE = "user://save_data.json"
 
 const loading_scene = preload("res://scenes/ui scenes/Loading.tscn")
+
 var current_scene : PackedScene = null
 var current_instance: Node = null
+
 @onready var loadscreen_instance = loading_scene.instantiate()
+@onready var scene = $Scene
+@onready var screen_cover = %ScreenCover
 
 func _ready() -> void:
 	_transition_scene(SceneType.MAIN)
@@ -51,7 +55,9 @@ enum SceneType {
 func _transition_scene(to: SceneType, level: int = 0):
 	if current_instance != null:
 		current_instance.queue_free()
-	add_child(loadscreen_instance)
+	
+	if not is_ancestor_of(loadscreen_instance):
+		add_child(loadscreen_instance)
 	
 	match to:
 		SceneType.MAIN:
@@ -75,12 +81,15 @@ func _transition_scene(to: SceneType, level: int = 0):
 			current_instance.update_level.connect(_update_level)
 
 	remove_child(loadscreen_instance)
-	add_child(current_instance)
+	scene.add_child(current_instance)
 
 
 func _quit_game():
 	_transition_scene(SceneType.MAIN)
 
+
+func _cover_fade(val: float):
+	screen_cover.color.a = val
 
 func _update_level(level: int):
 	var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
@@ -94,8 +103,16 @@ func _update_level(level: int):
 	file.store_string(JSON.stringify(obj))
 	file.close()
 	
-	_transition_scene(SceneType.LEVEL_SELECT, playthrough)
+	screen_cover.show()
+	var tween = create_tween()
+	tween.tween_method(_cover_fade, 0.0, 1.0, 0.2)
+	tween.tween_callback(current_instance.queue_free)
+	tween.tween_method(_cover_fade, 1.0, 0.0, 0.2)
 	
 	if playthrough <= 8:
-		await get_tree().create_timer(0.2).timeout
-		_transition_scene(SceneType.GAME, playthrough)
+		tween.parallel().tween_callback(_transition_scene.bind(SceneType.GAME, playthrough))
+	else:
+		_transition_scene(SceneType.LEVEL_SELECT)
+	
+	await tween.finished
+	screen_cover.hide()
