@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://685rf4oha7m3" path="res://assets/Card-layout-disabled.png" id="5_bdhmt"]
 [ext_resource type="Texture2D" uid="uid://cmetltbtg0ww5" path="res://assets/Powers.png" id="5_lfrn8"]
 [ext_resource type="Script" uid="uid://cyn7mo3e1b17q" path="res://scenes/game/pause_screen.gd" id="6_5i0tg"]
-[ext_resource type="Script" uid="uid://bmrq53vwhcobi" path="res://scenes/game/rook.gd" id="7_87uf6"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5i0tg"]
 load_path = "res://.godot/imported/Card-layout.png-97ced0726fd48f03e63df396eacfef7d.ctex"
@@ -238,7 +237,6 @@ theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxTexture_kelw5")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_87uf6")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_vaxfo")
-script = ExtResource("7_87uf6")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/SideBar/GridContainer/Rook" unique_id=767516327]
 layout_mode = 1

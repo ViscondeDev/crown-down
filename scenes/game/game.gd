@@ -22,9 +22,9 @@ enum GameState {
 	LOST = 5,
 }
 
-const loading_scene = preload("res://scenes/ui scenes/Loading.tscn")
+const LOADING_SCENE = preload("res://scenes/ui scenes/Loading.tscn")
 @export var level: int = 0
-@onready var loadscreen_instance = loading_scene.instantiate()
+@onready var loadscreen_instance = LOADING_SCENE.instantiate()
 @onready var power_selections: Array[Button] = [%Knight, %Bishop, %Rook]
 
 @onready var world: Node = %World

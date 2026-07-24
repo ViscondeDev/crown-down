@@ -27,8 +27,14 @@ enum SelectionState {
 
 func get_selection(selection: Selection, state: Variant) -> void:
 	if state == SelectionState.SELECTED:
-		possible_moves = movement_keys[selection].get_valid_tiles(current_board_position, is_friendly)
-		Board.effects_layer.highlight_tiles(possible_moves, Board.effects_layer.Effect.AVALIABLE)
+		possible_moves = movement_keys[selection].get_valid_tiles(
+			current_board_position,
+			is_friendly,
+		)
+		Board.effects_layer.highlight_tiles(
+			possible_moves,
+			Board.effects_layer.Effect.AVALIABLE,
+		)
 		Level.current.current_state = Level.State.MOVEMENT
 
 
