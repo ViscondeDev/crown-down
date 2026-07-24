@@ -44,7 +44,7 @@ func move_to_tile(tile: Vector2i) -> void:
 func get_taken() -> void:
 	if is_friendly:
 		Level.current.end_game(Level.State.LOST)
-	Board.current_board.pieces.erase(current_board_position)
-	if Board.current_board.pieces.size() == 1:
+	elif Board.current_board.pieces.size() == 2:
 		Level.current.end_game(Level.State.WON)
+	Board.current_board.pieces.erase(current_board_position)
 	queue_free()

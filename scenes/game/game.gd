@@ -43,8 +43,8 @@ func _ready() -> void:
 func _load_level(to_load: int):
 	if current_instance != null:
 		current_instance.queue_free()
+		await get_tree().create_timer(0.5).timeout
 	add_child(loadscreen_instance)
-	print(to_load)
 	match to_load:
 		1:
 			loaded_scene = load("res://scenes/levels/level1.tscn")
