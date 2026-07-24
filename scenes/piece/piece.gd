@@ -21,6 +21,8 @@ func _ready():
 
 func move_to_tile(tile: Vector2i) -> void:
 	if tile in possible_moves:
+		if not is_friendly:
+			Board.effects_layer.highlight_tiles(possible_moves,Board.effects_layer.Effect.THRETENED)
 		sprite.frame_coords.y += 1
 		movement_animation.queue_movement(
 			Board.current_board.map_to_local(current_board_position),
