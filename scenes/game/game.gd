@@ -49,7 +49,9 @@ func _load_level(to_load: int):
 		1:
 			loaded_scene = load("res://scenes/levels/level1.tscn")
 		2:
-			loaded_scene = load("uid://b8f32pph3xwk5")
+			loaded_scene = load("res://scenes/levels/level3.tscn")
+		3:
+			loaded_scene = load("res://scenes/levels/level2.tscn")
 
 	current_instance = loaded_scene.instantiate()
 	current_instance.state_changed.connect(_update_state)
@@ -63,6 +65,7 @@ func _load_level(to_load: int):
 func _update_state(new_state: GameState):
 	match new_state:
 		GameState.WON:
+			Board.current_board.pieces.clear()
 			update_level.emit(level + 1)
 		GameState.LOST:
 			_load_level(level)

@@ -97,5 +97,5 @@ func _update_level(level: int):
 	_transition_scene(SceneType.LEVEL_SELECT, playthrough)
 	
 	if playthrough <= 8:
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(0.2).timeout
 		_transition_scene(SceneType.GAME, playthrough)

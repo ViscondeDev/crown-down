@@ -24,12 +24,3 @@ body = NodePath("..")
 movement_curve = ExtResource("4_s3kgf")
 tilt_curve = ExtResource("5_xgbuj")
 metadata/_custom_type_script = "uid://oeyu1nrn22mj"
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=353904607]
-zoom = Vector2(1.5, 1.5)
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.5
-drag_top_margin = 0.5
-drag_right_margin = 0.5
-drag_bottom_margin = 0.5

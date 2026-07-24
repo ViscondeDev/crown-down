@@ -21,11 +21,6 @@ func _ready():
 
 func move_to_tile(tile: Vector2i) -> void:
 	if tile in possible_moves:
-		if (
-			tile in Board.current_board.pieces.keys()
-			and Board.current_board.pieces[tile].is_friendly != is_friendly
-		):
-			Board.current_board.pieces[tile].get_taken()
 
 		movement_animation.queue_movement(
 			Board.current_board.map_to_local(current_board_position),
@@ -33,6 +28,11 @@ func move_to_tile(tile: Vector2i) -> void:
 		)
 		await movement_animation.movement_finished
 
+		if (
+			tile in Board.current_board.pieces.keys()
+			and Board.current_board.pieces[tile].is_friendly != is_friendly
+		):
+			Board.current_board.pieces[tile].get_taken()	
 		Board.current_board.pieces.erase(current_board_position)
 		current_board_position = tile
 		Board.current_board.pieces[tile] = self

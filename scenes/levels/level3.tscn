@@ -1,62 +1,52 @@
-[gd_scene format=4 uid="uid://b8f32pph3xwk5"]
+[gd_scene format=4 uid="uid://dcb5hm4vlwxrt"]
 
-[ext_resource type="Script" uid="uid://i80q3xsk25x1" path="res://scenes/levels/level.gd" id="1_oyk6k"]
-[ext_resource type="TileSet" uid="uid://halyoheq7qe8" path="res://resources/tileset.tres" id="2_gycjm"]
-[ext_resource type="Script" uid="uid://rnwdf3l1uqdm" path="res://scenes/board/board.gd" id="3_8i1lk"]
-[ext_resource type="Script" uid="uid://ttpxsm6ywhi3" path="res://scenes/board/board_effects.gd" id="4_hgky1"]
-[ext_resource type="PackedScene" uid="uid://c2uy1q7o5g5nu" path="res://scenes/piece/piece.tscn" id="5_b4tpv"]
-[ext_resource type="Script" uid="uid://c3pny7k8vvqvo" path="res://resources/movements/rook.gd" id="6_hkuam"]
-[ext_resource type="Script" uid="uid://27oopufgmga2" path="res://resources/movements/bishop.gd" id="7_f3b2k"]
-[ext_resource type="Script" uid="uid://bu2b5vdohd26k" path="res://resources/movements/knight.gd" id="8_sqrei"]
-[ext_resource type="PackedScene" uid="uid://dr0xjkmav1kfo" path="res://scenes/piece/pawn.tscn" id="9_yhrca"]
-[ext_resource type="Script" uid="uid://bme1cp2kkltt3" path="res://core/enemy_ai.gd" id="10_4eecq"]
+[ext_resource type="Script" uid="uid://i80q3xsk25x1" path="res://scenes/levels/level.gd" id="1_7eb4w"]
+[ext_resource type="TileSet" uid="uid://halyoheq7qe8" path="res://resources/tileset.tres" id="2_hadiw"]
+[ext_resource type="Script" uid="uid://rnwdf3l1uqdm" path="res://scenes/board/board.gd" id="3_72x3h"]
+[ext_resource type="Script" uid="uid://ttpxsm6ywhi3" path="res://scenes/board/board_effects.gd" id="4_wb0vq"]
+[ext_resource type="PackedScene" uid="uid://c2uy1q7o5g5nu" path="res://scenes/piece/piece.tscn" id="5_ah4rv"]
+[ext_resource type="Script" uid="uid://c3pny7k8vvqvo" path="res://resources/movements/rook.gd" id="6_522sc"]
+[ext_resource type="Script" uid="uid://27oopufgmga2" path="res://resources/movements/bishop.gd" id="7_a82vw"]
+[ext_resource type="PackedScene" uid="uid://dr0xjkmav1kfo" path="res://scenes/piece/pawn.tscn" id="8_t14x3"]
+[ext_resource type="Script" uid="uid://bme1cp2kkltt3" path="res://core/enemy_ai.gd" id="9_ahaer"]
 
 [sub_resource type="Resource" id="Resource_icy5c"]
-script = ExtResource("6_hkuam")
+script = ExtResource("6_522sc")
 metadata/_custom_type_script = "uid://c3pny7k8vvqvo"
 
 [sub_resource type="Resource" id="Resource_rmjfq"]
-script = ExtResource("7_f3b2k")
+script = ExtResource("7_a82vw")
 metadata/_custom_type_script = "uid://27oopufgmga2"
 
-[sub_resource type="Resource" id="Resource_wt4k6"]
-script = ExtResource("8_sqrei")
-metadata/_custom_type_script = "uid://bu2b5vdohd26k"
-
 [node name="Level" type="Node2D" unique_id=1820218999]
-script = ExtResource("1_oyk6k")
+script = ExtResource("1_7eb4w")
 metadata/_custom_type_script = "uid://i80q3xsk25x1"
 
 [node name="Board" type="TileMapLayer" parent="." unique_id=2021168563]
 tile_map_data = PackedByteArray("AAALAAsAAAABAAEAAAALAAoAAAABAAEAAAALAAkAAAABAAEAAAALAAgAAAABAAEAAAALAAcAAAABAAEAAAALAAYAAAADAAAAAAALAAUAAAADAAEAAAALAAQAAAABAAEAAAAKAAsAAAADAAEAAAAKAAoAAAADAAIAAAAKAAkAAAABAAEAAAAKAAgAAAABAAEAAAAKAAcAAAADAAEAAAAKAAYAAAABAAEAAAAKAAUAAAADAAAAAAAKAAQAAAABAAEAAAAJAAsAAAABAAEAAAAJAAoAAAADAAIAAAAJAAkAAAABAAEAAAAJAAgAAAABAAEAAAAJAAcAAAADAAIAAAAJAAYAAAABAAEAAAAJAAUAAAADAAIAAAAJAAQAAAABAAEAAAAIAAsAAAABAAEAAAAIAAoAAAABAAEAAAAIAAkAAAADAAEAAAAIAAgAAAADAAEAAAAIAAcAAAABAAEAAAAIAAYAAAADAAAAAAAIAAUAAAADAAEAAAAIAAQAAAABAAEAAAAHAAUAAAABAAEAAAAHAAQAAAADAAEAAAAHAAMAAAABAAAAAAAIAAMAAAABAAAAAAAJAAMAAAABAAAAAAAHAAYAAAABAAEAAAAHAAcAAAABAAEAAAAHAAgAAAABAAQAAAAHAAkAAAAAAAEAAAAHAAoAAAAAAAEAAAAHAAsAAAAAAAEAAAAJAAwAAAABAAIAAAAIAAwAAAABAAIAAAAHAAwAAAAAAAIAAAAKAAMAAAABAAAAAAAKAAwAAAABAAIAAAALAAMAAAABAAAAAAALAAwAAAABAAIAAAAMAAQAAAABAAEAAAAMAAUAAAABAAEAAAAMAAMAAAABAAAAAAAMAAYAAAABAAEAAAAMAAcAAAABAAEAAAAMAAgAAAACAAQAAAAMAAkAAAACAAEAAAAMAAoAAAACAAEAAAAMAAsAAAACAAEAAAAMAAwAAAACAAIAAAAQAAcAAAABAAEAAAAQAAYAAAABAAEAAAAQAAUAAAADAAAAAAAQAAQAAAABAAEAAAAPAAcAAAABAAEAAAAPAAYAAAADAAIAAAAPAAUAAAABAAEAAAAPAAQAAAABAAEAAAAOAAcAAAABAAEAAAAOAAYAAAABAAEAAAAOAAUAAAABAAEAAAAOAAQAAAADAAEAAAANAAcAAAADAAAAAAANAAYAAAABAAEAAAANAAUAAAABAAEAAAANAAQAAAABAAEAAAANAAMAAAABAAAAAAANAAgAAAABAAIAAAAOAAMAAAABAAAAAAAOAAgAAAABAAIAAAAPAAMAAAABAAAAAAAPAAgAAAABAAIAAAAQAAMAAAABAAAAAAAQAAgAAAABAAIAAAARAAQAAAACAAEAAAARAAUAAAACAAEAAAARAAMAAAACAAAAAAARAAYAAAACAAEAAAARAAcAAAACAAEAAAARAAgAAAACAAIAAAAGAAcAAAABAAEAAAAGAAYAAAABAAEAAAAGAAUAAAABAAEAAAAGAAQAAAABAAEAAAAFAAcAAAABAAEAAAAFAAYAAAABAAEAAAAFAAUAAAADAAIAAAAFAAQAAAABAAEAAAAEAAcAAAABAAEAAAAEAAYAAAADAAAAAAAEAAUAAAADAAAAAAAEAAQAAAABAAEAAAADAAcAAAABAAEAAAADAAYAAAABAAEAAAADAAUAAAABAAEAAAADAAQAAAABAAEAAAACAAUAAAAAAAEAAAACAAQAAAAAAAEAAAACAAMAAAAAAAAAAAADAAMAAAABAAAAAAAEAAMAAAABAAAAAAACAAYAAAAAAAEAAAACAAcAAAAAAAEAAAAEAAgAAAABAAIAAAADAAgAAAABAAIAAAACAAgAAAAAAAIAAAAFAAMAAAABAAAAAAAFAAgAAAABAAIAAAAGAAMAAAABAAAAAAAGAAgAAAABAAIAAAA=")
-tile_set = ExtResource("2_gycjm")
-script = ExtResource("3_8i1lk")
+tile_set = ExtResource("2_hadiw")
+script = ExtResource("3_72x3h")
 
 [node name="BoardEffects" type="TileMapLayer" parent="." unique_id=377712463]
-tile_set = ExtResource("2_gycjm")
-script = ExtResource("4_hgky1")
+tile_set = ExtResource("2_hadiw")
+script = ExtResource("4_wb0vq")
 
-[node name="Piece" parent="." unique_id=1987036587 instance=ExtResource("5_b4tpv")]
+[node name="Piece" parent="." unique_id=1987036587 instance=ExtResource("5_ah4rv")]
 position = Vector2(216, 88)
 movement_type = SubResource("Resource_icy5c")
 is_friendly = null
 
-[node name="Piece3" parent="." unique_id=1460264443 instance=ExtResource("5_b4tpv")]
+[node name="Piece3" parent="." unique_id=1460264443 instance=ExtResource("5_ah4rv")]
 position = Vector2(152, 152)
 movement_type = SubResource("Resource_rmjfq")
 is_friendly = null
 
-[node name="Piece4" parent="." unique_id=218079147 instance=ExtResource("5_b4tpv")]
-position = Vector2(136, 88)
-movement_type = SubResource("Resource_wt4k6")
-is_friendly = null
-
-[node name="Pawn" parent="." unique_id=619880526 instance=ExtResource("9_yhrca")]
+[node name="Pawn" parent="." unique_id=619880526 instance=ExtResource("8_t14x3")]
 unique_name_in_owner = true
 position = Vector2(88, 104)
 is_friendly = true
 
 [node name="EnemyAI" type="Node" parent="." unique_id=179269147]
 unique_name_in_owner = true
-script = ExtResource("10_4eecq")
+script = ExtResource("9_ahaer")
 metadata/_custom_type_script = "uid://bme1cp2kkltt3"
