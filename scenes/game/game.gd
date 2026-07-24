@@ -51,6 +51,8 @@ func _load_level(to_load: int):
 	match to_load:
 		1:
 			loaded_scene = load("res://scenes/levels/level.tscn")
+		2:
+			loaded_scene = load("res://scenes/levels/level2.tscn")
 
 	current_instance = loaded_scene.instantiate()
 	current_instance.state_changed.connect(_update_state)
@@ -83,7 +85,7 @@ func _select(selection: Selection):
 
 func _on_pause_pressed() -> void:
 	get_tree().paused = true
-	$UI/PauseScreen.show()
+	%PauseScreen.show()
 
 
 func _on_pause_screen_quit() -> void:

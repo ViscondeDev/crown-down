@@ -254,6 +254,7 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_bdhmt")
 
 [node name="PauseScreen" type="ColorRect" parent="CanvasLayer/UI" unique_id=17629139]
+unique_name_in_owner = true
 process_mode = 3
 visible = false
 layout_mode = 1
