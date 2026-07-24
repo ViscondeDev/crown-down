@@ -1,50 +1,59 @@
-[gd_scene format=4 uid="uid://dcb5hm4vlwxrt"]
+[gd_scene format=4 uid="uid://gp4a7dg5qnbj"]
 
-[ext_resource type="Script" uid="uid://i80q3xsk25x1" path="res://scenes/levels/level.gd" id="1_7eb4w"]
-[ext_resource type="TileSet" uid="uid://halyoheq7qe8" path="res://resources/tileset.tres" id="2_hadiw"]
-[ext_resource type="Script" uid="uid://rnwdf3l1uqdm" path="res://scenes/board/board.gd" id="3_72x3h"]
-[ext_resource type="Script" uid="uid://ttpxsm6ywhi3" path="res://scenes/board/board_effects.gd" id="4_wb0vq"]
-[ext_resource type="PackedScene" uid="uid://c2uy1q7o5g5nu" path="res://scenes/piece/piece.tscn" id="5_ah4rv"]
-[ext_resource type="Script" uid="uid://c3pny7k8vvqvo" path="res://resources/movements/rook.gd" id="6_522sc"]
-[ext_resource type="Script" uid="uid://27oopufgmga2" path="res://resources/movements/bishop.gd" id="7_a82vw"]
-[ext_resource type="PackedScene" uid="uid://dr0xjkmav1kfo" path="res://scenes/piece/pawn.tscn" id="8_t14x3"]
-[ext_resource type="Script" uid="uid://bme1cp2kkltt3" path="res://core/enemy_ai.gd" id="9_ahaer"]
+[ext_resource type="Script" uid="uid://i80q3xsk25x1" path="res://scenes/levels/level.gd" id="1_4vryo"]
+[ext_resource type="TileSet" uid="uid://halyoheq7qe8" path="res://resources/tileset.tres" id="2_g1ckg"]
+[ext_resource type="Script" uid="uid://rnwdf3l1uqdm" path="res://scenes/board/board.gd" id="3_t7v7a"]
+[ext_resource type="Script" uid="uid://ttpxsm6ywhi3" path="res://scenes/board/board_effects.gd" id="4_xx6b8"]
+[ext_resource type="PackedScene" uid="uid://c2uy1q7o5g5nu" path="res://scenes/piece/piece.tscn" id="5_f62st"]
+[ext_resource type="Script" uid="uid://c3pny7k8vvqvo" path="res://resources/movements/rook.gd" id="6_w24lh"]
+[ext_resource type="Script" uid="uid://bu2b5vdohd26k" path="res://resources/movements/knight.gd" id="7_5sfmg"]
+[ext_resource type="Script" uid="uid://27oopufgmga2" path="res://resources/movements/bishop.gd" id="8_g1ckg"]
+[ext_resource type="PackedScene" uid="uid://dr0xjkmav1kfo" path="res://scenes/piece/pawn.tscn" id="8_tsmbm"]
+[ext_resource type="Script" uid="uid://bme1cp2kkltt3" path="res://core/enemy_ai.gd" id="9_y3vdi"]
 
 [sub_resource type="Resource" id="Resource_jnthc"]
-script = ExtResource("6_522sc")
+script = ExtResource("6_w24lh")
 metadata/_custom_type_script = "uid://c3pny7k8vvqvo"
 
-[sub_resource type="Resource" id="Resource_irrt8"]
-script = ExtResource("7_a82vw")
+[sub_resource type="Resource" id="Resource_wt4k6"]
+script = ExtResource("7_5sfmg")
+metadata/_custom_type_script = "uid://bu2b5vdohd26k"
+
+[sub_resource type="Resource" id="Resource_7eb4w"]
+script = ExtResource("8_g1ckg")
 metadata/_custom_type_script = "uid://27oopufgmga2"
 
 [node name="Level" type="Node2D" unique_id=1820218999]
-script = ExtResource("1_7eb4w")
+script = ExtResource("1_4vryo")
 metadata/_custom_type_script = "uid://i80q3xsk25x1"
 
 [node name="Board" type="TileMapLayer" parent="." unique_id=2021168563]
 tile_map_data = PackedByteArray("AAAPAAcAAAACAAIAAAAPAAYAAAACAAIAAAAPAAUAAAACAAIAAAAPAAQAAAACAAUAAAAPAAMAAAADAAMAAAAOAAcAAAADAAIAAAAOAAYAAAABAAIAAAAOAAUAAAADAAEAAAAOAAQAAAADAAMAAAAOAAMAAAADAAAAAAANAAcAAAADAAEAAAANAAYAAAABAAIAAAANAAUAAAABAAIAAAANAAQAAAADAAAAAAANAAMAAAADAAIAAAAMAAcAAAADAAMAAAAMAAYAAAADAAMAAAAMAAUAAAADAAAAAAAMAAQAAAABAAIAAAAMAAMAAAADAAIAAAALAAcAAAADAAMAAAALAAYAAAABAAIAAAALAAUAAAADAAIAAAALAAQAAAADAAIAAAALAAMAAAADAAAAAAAKAAcAAAADAAAAAAAKAAYAAAADAAAAAAAKAAUAAAADAAEAAAAKAAQAAAADAAIAAAAKAAMAAAADAAAAAAAJAAcAAAAAAAIAAAAJAAYAAAAAAAIAAAAJAAUAAAAAAAIAAAAJAAQAAAAAAAIAAAAJAAMAAAAAAAIAAAAPAAIAAAADAAIAAAAOAAIAAAADAAMAAAANAAIAAAADAAIAAAAMAAIAAAADAAEAAAALAAIAAAADAAEAAAAKAAIAAAADAAEAAAAJAAIAAAAAAAIAAAAOAAgAAAADAAMAAAANAAgAAAADAAMAAAAMAAgAAAADAAAAAAALAAgAAAADAAEAAAAKAAgAAAADAAIAAAAPAAkAAAACAAMAAAAPAAgAAAACAAIAAAAOAAkAAAABAAMAAAANAAkAAAABAAMAAAAMAAkAAAABAAMAAAALAAkAAAABAAMAAAAKAAkAAAABAAMAAAAJAAkAAAAAAAMAAAAJAAgAAAAAAAIAAAASAAQAAAACAAMAAAASAAMAAAACAAIAAAARAAQAAAABAAMAAAARAAMAAAADAAMAAAAQAAQAAAABAAMAAAAQAAMAAAADAAIAAAASAAIAAAACAAIAAAASAAEAAAACAAEAAAARAAIAAAADAAAAAAARAAEAAAABAAEAAAAQAAIAAAADAAMAAAAQAAEAAAABAAEAAAAPAAEAAAABAAEAAAAOAAEAAAABAAEAAAANAAEAAAABAAEAAAAMAAEAAAABAAEAAAALAAEAAAABAAEAAAAKAAEAAAABAAEAAAAJAAEAAAAAAAEAAAASAAAAAAACAAAAAAARAAAAAAABAAAAAAAQAAAAAAABAAAAAAAPAAAAAAABAAAAAAAOAAAAAAABAAAAAAANAAAAAAABAAAAAAAMAAAAAAABAAAAAAALAAAAAAABAAAAAAAKAAAAAAABAAAAAAAJAAAAAAAAAAAAAAA=")
-tile_set = ExtResource("2_hadiw")
-script = ExtResource("3_72x3h")
+tile_set = ExtResource("2_g1ckg")
+script = ExtResource("3_t7v7a")
 
 [node name="BoardEffects" type="TileMapLayer" parent="." unique_id=377712463]
-tile_set = ExtResource("2_hadiw")
-script = ExtResource("4_wb0vq")
+tile_set = ExtResource("2_g1ckg")
+script = ExtResource("4_xx6b8")
 
-[node name="Piece" parent="." unique_id=1987036587 instance=ExtResource("5_ah4rv")]
+[node name="Piece" parent="." unique_id=1987036587 instance=ExtResource("5_f62st")]
 position = Vector2(168, 72)
 movement_type = SubResource("Resource_jnthc")
 
-[node name="Piece3" parent="." unique_id=2045152447 instance=ExtResource("5_ah4rv")]
-position = Vector2(216, 56)
-movement_type = SubResource("Resource_irrt8")
+[node name="Piece2" parent="." unique_id=621962750 instance=ExtResource("5_f62st")]
+position = Vector2(232, 72)
+movement_type = SubResource("Resource_wt4k6")
 
-[node name="Pawn" parent="." unique_id=619880526 instance=ExtResource("8_t14x3")]
+[node name="Piece3" parent="." unique_id=1105164794 instance=ExtResource("5_f62st")]
+position = Vector2(216, 56)
+movement_type = SubResource("Resource_7eb4w")
+
+[node name="Pawn" parent="." unique_id=619880526 instance=ExtResource("8_tsmbm")]
 unique_name_in_owner = true
 position = Vector2(184, 120)
 is_friendly = true
 
 [node name="EnemyAI" type="Node" parent="." unique_id=179269147]
 unique_name_in_owner = true
-script = ExtResource("9_ahaer")
+script = ExtResource("9_y3vdi")
 metadata/_custom_type_script = "uid://bme1cp2kkltt3"

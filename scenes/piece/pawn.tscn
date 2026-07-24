@@ -16,7 +16,7 @@ position = Vector2(0, -8)
 texture = ExtResource("2_f0taw")
 hframes = 4
 vframes = 2
-frame = 3
+frame = 7
 
 [node name="PieceMovement" type="AnimationPlayer" parent="." unique_id=1184581654 node_paths=PackedStringArray("body")]
 unique_name_in_owner = true

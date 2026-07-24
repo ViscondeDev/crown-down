@@ -51,6 +51,11 @@ func _load_level(to_load: int):
 			loaded_scene = load("res://scenes/levels/level1.tscn")
 		2:
 			loaded_scene = load("res://scenes/levels/level2.tscn")
+		3:
+			loaded_scene = load("res://scenes/levels/level3.tscn")
+		4:
+			loaded_scene = load("res://scenes/levels/level4.tscn")
+
 
 	if loaded_scene == null:
 		level_page.emit()
