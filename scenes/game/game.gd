@@ -23,9 +23,7 @@ enum GameState {
 	LOST = 5,
 }
 
-const LOADING_SCENE = preload("res://scenes/ui scenes/Loading.tscn")
 @export var level: int = 0
-@onready var loadscreen_instance = LOADING_SCENE.instantiate()
 @onready var power_selections: Array[Button] = [%Knight, %Bishop, %Rook]
 
 @onready var world: Node = %World
@@ -46,7 +44,6 @@ func _load_level(to_load: int):
 		current_instance.queue_free()
 		loaded_scene = null
 		await get_tree().create_timer(0.5).timeout
-	add_child(loadscreen_instance)
 	
 	match to_load:
 		1:
@@ -61,7 +58,6 @@ func _load_level(to_load: int):
 		current_instance.state_changed.connect(_update_state)
 		current_instance.update_selection.connect(_update_selection)
 
-		remove_child(loadscreen_instance)
 		world.add_child(current_instance)
 		Level.current.update_selection.emit(Selection.ROOK, SelectionState.NONE)
 
