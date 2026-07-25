@@ -2,12 +2,9 @@ extends Node
 
 const SAVE_FILE = "user://save_data.json"
 
-const loading_scene = preload("res://scenes/ui scenes/Loading.tscn")
-
 var current_scene : PackedScene = null
 var current_instance: Node = null
 
-@onready var loadscreen_instance = loading_scene.instantiate()
 @onready var scene = $Scene
 @onready var screen_cover = %ScreenCover
 
@@ -53,12 +50,19 @@ enum SceneType {
 	GAME,
 }
 func _transition_scene(to: SceneType, level: int = 0):
+	screen_cover.show()
+	var tween = create_tween()
+	tween.tween_method(_cover_fade, 0.0, 1.0, 0.2)
+	
 	if current_instance != null:
-		current_instance.queue_free()
-	
-	if not is_ancestor_of(loadscreen_instance):
-		add_child(loadscreen_instance)
-	
+		tween.tween_callback(current_instance.queue_free)
+		
+	tween.tween_callback(_switch_scene.bind(to, level))
+	tween.tween_method(_cover_fade, 1.0, 0.0, 0.2)
+	tween.tween_callback(screen_cover.hide)
+
+
+func _switch_scene(to: SceneType, level: int):
 	match to:
 		SceneType.MAIN:
 			current_scene = load("res://scenes/ui scenes/main_screen/MainScreen.tscn")
@@ -68,24 +72,17 @@ func _transition_scene(to: SceneType, level: int = 0):
 		SceneType.LEVEL_SELECT:
 			current_scene = load("res://scenes/ui scenes/level_select/level_select.tscn")
 			current_instance = current_scene.instantiate()
-			if level > 0 and level <= 8:
-				current_instance.current = level
-			else:
-				current_instance.level_select_action.connect(_level_select_action)
+			current_instance.level_select_action.connect(_level_select_action)
 		
 		SceneType.GAME:
 			current_scene = load("res://scenes/game/game.tscn")
 			current_instance = current_scene.instantiate()
 			current_instance.level = level
-			current_instance.quit.connect(_quit_game)
 			current_instance.update_level.connect(_update_level)
-
-	remove_child(loadscreen_instance)
+			current_instance.quit.connect(_transition_scene.bind(SceneType.MAIN))
+			current_instance.level_page.connect(_transition_scene.bind(SceneType.LEVEL_SELECT))
+	
 	scene.add_child(current_instance)
-
-
-func _quit_game():
-	_transition_scene(SceneType.MAIN)
 
 
 func _cover_fade(val: float):
@@ -103,16 +100,7 @@ func _update_level(level: int):
 	file.store_string(JSON.stringify(obj))
 	file.close()
 	
-	screen_cover.show()
-	var tween = create_tween()
-	tween.tween_method(_cover_fade, 0.0, 1.0, 0.2)
-	tween.tween_callback(current_instance.queue_free)
-	tween.tween_method(_cover_fade, 1.0, 0.0, 0.2)
-	
 	if playthrough <= 8:
-		tween.parallel().tween_callback(_transition_scene.bind(SceneType.GAME, playthrough))
+		_transition_scene(SceneType.GAME, playthrough)
 	else:
 		_transition_scene(SceneType.LEVEL_SELECT)
-	
-	await tween.finished
-	screen_cover.hide()

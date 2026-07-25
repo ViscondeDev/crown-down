@@ -1,6 +1,7 @@
 extends Node
 
 signal quit()
+signal level_page()
 signal update_level(level: int)
 
 enum Selection {
@@ -22,9 +23,7 @@ enum GameState {
 	LOST = 5,
 }
 
-const LOADING_SCENE = preload("res://scenes/ui scenes/Loading.tscn")
 @export var level: int = 0
-@onready var loadscreen_instance = LOADING_SCENE.instantiate()
 @onready var power_selections: Array[Button] = [%Knight, %Bishop, %Rook]
 
 @onready var world: Node = %World
@@ -35,6 +34,7 @@ var current_instance: Node = null
 
 func _ready() -> void:
 	_load_level(level)
+	%Particles.preprocess = 10
 
 	for i in range(len(power_selections)):
 		power_selections[i].disabled = false
@@ -43,21 +43,24 @@ func _ready() -> void:
 func _load_level(to_load: int):
 	if current_instance != null:
 		current_instance.queue_free()
+		loaded_scene = null
 		await get_tree().create_timer(0.5).timeout
-	add_child(loadscreen_instance)
+	
 	match to_load:
 		1:
 			loaded_scene = load("res://scenes/levels/level1.tscn")
 		2:
 			loaded_scene = load("res://scenes/levels/level2.tscn")
 
-	current_instance = loaded_scene.instantiate()
-	current_instance.state_changed.connect(_update_state)
-	current_instance.update_selection.connect(_update_selection)
+	if loaded_scene == null:
+		level_page.emit()
+	else:
+		current_instance = loaded_scene.instantiate()
+		current_instance.state_changed.connect(_update_state)
+		current_instance.update_selection.connect(_update_selection)
 
-	remove_child(loadscreen_instance)
-	world.add_child(current_instance)
-	Level.current.update_selection.emit(Selection.ROOK, SelectionState.NONE)
+		world.add_child(current_instance)
+		Level.current.update_selection.emit(Selection.ROOK, SelectionState.NONE)
 
 
 func _update_state(new_state: GameState):
