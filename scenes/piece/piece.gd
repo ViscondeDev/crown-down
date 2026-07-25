@@ -64,5 +64,4 @@ func get_taken() -> void:
 	elif Board.current_board.pieces.size() == 2:
 		Level.current.end_game(Level.State.WON)
 	Board.current_board.pieces.erase(current_board_position)
-	death_sound.play()
 	visible = false

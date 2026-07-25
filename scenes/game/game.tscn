@@ -18,6 +18,10 @@
 [ext_resource type="AudioStream" uid="uid://kxu8ahqtfxw4" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_gameplay_menu_hover_2.wav" id="13_uyinl"]
 [ext_resource type="AudioStream" uid="uid://cuoyduaxmb7fr" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_choose_rook_button.wav" id="14_3xj4h"]
 [ext_resource type="AudioStream" uid="uid://6s2ympvl5nog" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_gameplay_menu_hover_3.wav" id="14_10c2w"]
+[ext_resource type="Script" uid="uid://b7hcvutnwxc2i" path="res://core/random_sound.gd" id="19_8b66f"]
+[ext_resource type="AudioStream" uid="uid://bpu4ktsvjree8" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_Char_Death_1.wav" id="20_3jaai"]
+[ext_resource type="AudioStream" uid="uid://d3vxfl6ux0hj1" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_Char_Death_2.wav" id="21_1iff4"]
+[ext_resource type="AudioStream" uid="uid://dgtnwplgspif5" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_Char_Death_3.wav" id="22_4vuph"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2oa66"]
 lifetime_randomness = 0.1
@@ -221,7 +225,7 @@ tracks/3/path = NodePath("Label2:text")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.6666666, 3.73),
+"times": PackedFloat32Array(0.6666666, 2.7633333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": ["Pick your
@@ -236,7 +240,7 @@ tracks/4/path = NodePath("Label2:visible_characters")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.6666666, 1.6666666, 3.5433335, 3.7333336, 4.133333, 5.3466663, 5.6666665),
+"times": PackedFloat32Array(0.6666666, 1.4, 2.5766668, 2.766667, 3.1666665, 4.3799996, 4.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0, 50, 50, 0, 50, 50, 0]
@@ -317,10 +321,10 @@ stretch_mode = 2
 
 [node name="Label2" type="Label" parent="CanvasLayer/UI/SideBar" unique_id=711360222]
 layout_mode = 0
-offset_left = -210.0
-offset_top = 91.0
-offset_right = -105.0
-offset_bottom = 160.0
+offset_left = -306.0
+offset_top = 11.0
+offset_right = -201.0
+offset_bottom = 80.0
 theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
 theme_override_fonts/font = ExtResource("2_7h61r")
 text = "Pick your
@@ -606,6 +610,20 @@ stream = ExtResource("13_otnwt")
 [node name="SfxUiGmtk26ChooseRookButton" type="AudioStreamPlayer" parent="." unique_id=1606234090]
 unique_name_in_owner = true
 stream = ExtResource("14_3xj4h")
+
+[node name="DeathSound" type="Node" parent="." unique_id=1389223968]
+unique_name_in_owner = true
+script = ExtResource("19_8b66f")
+metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
+
+[node name="SfxSfxGmtk26CharCharDeath1" type="AudioStreamPlayer" parent="DeathSound" unique_id=275330697]
+stream = ExtResource("20_3jaai")
+
+[node name="SfxSfxGmtk26CharCharDeath2" type="AudioStreamPlayer" parent="DeathSound" unique_id=1654276984]
+stream = ExtResource("21_1iff4")
+
+[node name="SfxSfxGmtk26CharCharDeath3" type="AudioStreamPlayer" parent="DeathSound" unique_id=947763234]
+stream = ExtResource("22_4vuph")
 
 [connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/Pause" to="HoverSound" method="_on_hover"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/Pause" to="." method="_on_pause_pressed"]

@@ -92,6 +92,7 @@ func _update_state(new_state: GameState):
 			Board.current_board.pieces.clear()
 			update_level.emit(level + 1)
 		GameState.LOST:
+			%DeathSound.play()
 			_reload_scene()
 
 

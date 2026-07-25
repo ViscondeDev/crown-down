@@ -15,9 +15,9 @@
 [ext_resource type="AudioStream" uid="uid://b30aygcae5lth" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_player_Rook_move_2.wav" id="11_i2idq"]
 [ext_resource type="AudioStream" uid="uid://ls3os4uvxvy4" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_char_Landing_tile_3.wav" id="12_2y5yo"]
 [ext_resource type="AudioStream" uid="uid://cfi3pqrwgm263" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_player_Bishop_move.wav" id="12_s1kmf"]
-[ext_resource type="AudioStream" uid="uid://cysdyo3f1uk7g" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_1.wav" id="13_i2idq"]
-[ext_resource type="AudioStream" uid="uid://cosyyyrps2jih" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_2.wav" id="14_s1kmf"]
-[ext_resource type="AudioStream" uid="uid://bfd3khrfdjm2" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_3.wav" id="15_ltwt7"]
+[ext_resource type="AudioStream" uid="uid://bpu4ktsvjree8" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_Char_Death_1.wav" id="16_2y5yo"]
+[ext_resource type="AudioStream" uid="uid://d3vxfl6ux0hj1" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_Char_Death_2.wav" id="17_i2idq"]
+[ext_resource type="AudioStream" uid="uid://dgtnwplgspif5" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_Char_Death_3.wav" id="18_s1kmf"]
 [ext_resource type="AudioStream" uid="uid://cbbi8ct6gkn26" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_player_knight_move_Attack.wav" id="19_2y5yo"]
 [ext_resource type="AudioStream" uid="uid://c42decolf15rb" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_player_Rook_move_Attack.wav" id="20_i2idq"]
 [ext_resource type="AudioStream" uid="uid://dry2yfltqtqnd" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_player_Bishop_Attack.wav" id="21_s1kmf"]
@@ -94,14 +94,14 @@ unique_name_in_owner = true
 script = ExtResource("6_3a0rs")
 metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
 
-[node name="SfxSfxGmtk26CharAiDeath1" type="AudioStreamPlayer" parent="Death" unique_id=905799728]
-stream = ExtResource("13_i2idq")
+[node name="SfxSfxGmtk26CharCharDeath1" type="AudioStreamPlayer" parent="Death" unique_id=1435138906]
+stream = ExtResource("16_2y5yo")
 
-[node name="SfxSfxGmtk26CharAiDeath2" type="AudioStreamPlayer" parent="Death" unique_id=1576403344]
-stream = ExtResource("14_s1kmf")
+[node name="SfxSfxGmtk26CharCharDeath2" type="AudioStreamPlayer" parent="Death" unique_id=1132426554]
+stream = ExtResource("17_i2idq")
 
-[node name="SfxSfxGmtk26CharAiDeath3" type="AudioStreamPlayer" parent="Death" unique_id=2036762903]
-stream = ExtResource("15_ltwt7")
+[node name="SfxSfxGmtk26CharCharDeath3" type="AudioStreamPlayer" parent="Death" unique_id=2047121344]
+stream = ExtResource("18_s1kmf")
 
 [node name="Attack" type="Node" parent="." unique_id=475454313]
 unique_name_in_owner = true
