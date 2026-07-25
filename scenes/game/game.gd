@@ -55,6 +55,8 @@ func _load_level(to_load: int):
 			loaded_scene = load("res://scenes/levels/level3.tscn")
 		4:
 			loaded_scene = load("res://scenes/levels/level4.tscn")
+		5:
+			loaded_scene = load("res://scenes/levels/level5.tscn")
 
 
 	if loaded_scene == null:
