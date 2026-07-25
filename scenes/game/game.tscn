@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c7b8dcmhm1rx1" path="res://scenes/game/game.gd" id="1_sul5r"]
 [ext_resource type="FontFile" uid="uid://tigroghm0sss" path="res://assets/PixelatedEleganceRegular-ovawB.ttf" id="2_7h61r"]
+[ext_resource type="Texture2D" uid="uid://laimqbqy6sd7" path="res://assets/tower.png" id="2_uyinl"]
 [ext_resource type="Texture2D" uid="uid://diabn1shat6bd" path="res://assets/Card-layout-hover.png" id="3_kelw5"]
 [ext_resource type="Texture2D" uid="uid://1t35x7umk145" path="res://assets/Pause.png" id="4_lfrn8"]
 [ext_resource type="Texture2D" uid="uid://685rf4oha7m3" path="res://assets/Card-layout-disabled.png" id="5_bdhmt"]
@@ -98,15 +99,154 @@ texture_margin_bottom = 5.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2oa66"]
 atlas = ExtResource("5_lfrn8")
-region = Rect2(62, 0, 31, 31)
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5i0tg"]
 atlas = ExtResource("5_lfrn8")
-region = Rect2(0, 0, 31, 31)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bdhmt"]
 atlas = ExtResource("5_lfrn8")
-region = Rect2(31, 0, 31, 31)
+region = Rect2(31, 0, 32, 32)
+
+[sub_resource type="Animation" id="Animation_uyinl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Knight:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%Bishop:offset_transform_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Rook:offset_transform_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label2:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Pick your
+move
+
+--->"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label2:visible_characters")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_10c2w"]
+resource_name = "intro"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Knight:offset_transform_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.79999995, 1.6666666),
+"transitions": PackedFloat32Array(1, 5.4641585),
+"update": 0,
+"values": [Vector2(0, 180), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%Bishop:offset_transform_position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.0333333, 1.6666666),
+"transitions": PackedFloat32Array(1, 2.9281716),
+"update": 0,
+"values": [Vector2(0, 180), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Rook:offset_transform_position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.3333333, 1.6666666),
+"transitions": PackedFloat32Array(1, 3.1383355),
+"update": 0,
+"values": [Vector2(0, 180), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label2:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6666666, 3.73),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Pick your
+move
+
+--->", "Kill all royalty"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label2:visible_characters")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.6666666, 1.6666666, 3.5433335, 3.7333336, 4.133333, 5.3466663, 5.6666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 50, 50, 0, 50, 50, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pg2xm"]
+_data = {
+&"RESET": SubResource("Animation_uyinl"),
+&"intro": SubResource("Animation_10c2w")
+}
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lfrn8"]
 texture = SubResource("CompressedTexture2D_0sr1o")
@@ -159,24 +299,44 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SideBar" type="ColorRect" parent="CanvasLayer/UI" unique_id=566182609]
+[node name="SideBar" type="TextureRect" parent="CanvasLayer/UI" unique_id=974172257]
+custom_maximum_size = Vector2(111, -1)
 layout_mode = 1
-anchors_preset = 11
+anchors_preset = 6
 anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -63.0
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -120.0
+offset_bottom = 120.0
 grow_horizontal = 0
 grow_vertical = 2
-color = Color(0.22745098, 0.13333334, 0.24705882, 1)
+texture = ExtResource("2_uyinl")
+stretch_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/UI/SideBar" unique_id=711360222]
+layout_mode = 0
+offset_left = -210.0
+offset_top = 91.0
+offset_right = -105.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
+theme_override_fonts/font = ExtResource("2_7h61r")
+text = "Pick your
+move
+
+--->"
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="Pause" type="Button" parent="CanvasLayer/UI/SideBar" unique_id=250510598]
 texture_filter = 1
 layout_mode = 0
-offset_left = 29.0
-offset_top = 9.0
-offset_right = 50.0
-offset_bottom = 31.0
+offset_left = 86.0
+offset_top = 214.0
+offset_right = 107.0
+offset_bottom = 236.0
 theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
 theme_override_fonts/font = ExtResource("2_7h61r")
 theme_override_font_sizes/font_size = 15
@@ -201,17 +361,18 @@ texture = ExtResource("4_lfrn8")
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/UI/SideBar" unique_id=1607045904]
 layout_mode = 0
-offset_left = 12.0
-offset_top = 53.0
-offset_right = 49.0
-offset_bottom = 217.0
-theme_override_constants/v_separation = 25
+offset_left = 44.0
+offset_top = 83.0
+offset_right = 84.0
+offset_bottom = 213.0
+theme_override_constants/v_separation = 5
 
 [node name="Knight" type="Button" parent="CanvasLayer/UI/SideBar/GridContainer" unique_id=1241544377]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
-theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0.078431375, 0.05882353, 0.08235294, 1)
 theme_override_fonts/font = ExtResource("2_7h61r")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxTexture_kelw5")
@@ -238,7 +399,8 @@ texture = SubResource("AtlasTexture_2oa66")
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
-theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0.078431375, 0.05882353, 0.08235294, 1)
 theme_override_fonts/font = ExtResource("2_7h61r")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxTexture_kelw5")
@@ -265,7 +427,8 @@ texture = SubResource("AtlasTexture_5i0tg")
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
-theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0.078431375, 0.05882353, 0.08235294, 1)
 theme_override_fonts/font = ExtResource("2_7h61r")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxTexture_kelw5")
@@ -287,6 +450,10 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_bdhmt")
+
+[node name="Intro" type="AnimationPlayer" parent="CanvasLayer/UI/SideBar" unique_id=1845424390]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_pg2xm")
 
 [node name="PauseScreen" type="ColorRect" parent="CanvasLayer/UI" unique_id=17629139]
 unique_name_in_owner = true
