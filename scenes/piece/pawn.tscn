@@ -5,6 +5,22 @@
 [ext_resource type="Script" uid="uid://oeyu1nrn22mj" path="res://scenes/piece/piece_movement.gd" id="3_f0taw"]
 [ext_resource type="Curve" uid="uid://s4x713h4exq2" path="res://resources/movement_curve.tres" id="4_s3kgf"]
 [ext_resource type="Curve" uid="uid://djlemmwnx1xya" path="res://resources/tilt_curve.tres" id="5_xgbuj"]
+[ext_resource type="Script" uid="uid://b7hcvutnwxc2i" path="res://core/random_sound.gd" id="6_3a0rs"]
+[ext_resource type="Script" uid="uid://cus2b2f4colj6" path="res://core/adaptative_sound.gd" id="6_qg7lu"]
+[ext_resource type="AudioStream" uid="uid://b4p25xpchuk76" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_player_knight_move_1.wav" id="8_k5uar"]
+[ext_resource type="AudioStream" uid="uid://yxykhxvbw72p" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_player_knight_move_2.wav" id="9_3yw6u"]
+[ext_resource type="AudioStream" uid="uid://d3evtp4spq23m" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_player_Rook_move_1.wav" id="10_2y5yo"]
+[ext_resource type="AudioStream" uid="uid://bgwip06feci46" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_char_Landing_tile_1.wav" id="10_k5uar"]
+[ext_resource type="AudioStream" uid="uid://bk8ui7boabjqc" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_char_Landing_tile_2.wav" id="11_3yw6u"]
+[ext_resource type="AudioStream" uid="uid://b30aygcae5lth" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_player_Rook_move_2.wav" id="11_i2idq"]
+[ext_resource type="AudioStream" uid="uid://ls3os4uvxvy4" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_char_Landing_tile_3.wav" id="12_2y5yo"]
+[ext_resource type="AudioStream" uid="uid://cfi3pqrwgm263" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_player_Bishop_move.wav" id="12_s1kmf"]
+[ext_resource type="AudioStream" uid="uid://cysdyo3f1uk7g" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_1.wav" id="13_i2idq"]
+[ext_resource type="AudioStream" uid="uid://cosyyyrps2jih" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_2.wav" id="14_s1kmf"]
+[ext_resource type="AudioStream" uid="uid://bfd3khrfdjm2" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_3.wav" id="15_ltwt7"]
+[ext_resource type="AudioStream" uid="uid://cbbi8ct6gkn26" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_player_knight_move_Attack.wav" id="19_2y5yo"]
+[ext_resource type="AudioStream" uid="uid://c42decolf15rb" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_player_Rook_move_Attack.wav" id="20_i2idq"]
+[ext_resource type="AudioStream" uid="uid://dry2yfltqtqnd" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_player_Bishop_Attack.wav" id="21_s1kmf"]
 
 [node name="Pawn" type="Node2D" unique_id=619880526]
 script = ExtResource("1_q620f")
@@ -26,3 +42,89 @@ movement_curve = ExtResource("4_s3kgf")
 tilt_curve = ExtResource("5_xgbuj")
 movement_duration = 0.5
 metadata/_custom_type_script = "uid://oeyu1nrn22mj"
+
+[node name="Move" type="Node" parent="." unique_id=890445848]
+unique_name_in_owner = true
+script = ExtResource("6_qg7lu")
+metadata/_custom_type_script = "uid://cus2b2f4colj6"
+
+[node name="Knight" type="Node" parent="Move" unique_id=1167495439]
+script = ExtResource("6_3a0rs")
+metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
+
+[node name="SfxGmtk26PlayerKnightMove1" type="AudioStreamPlayer" parent="Move/Knight" unique_id=1961712855]
+stream = ExtResource("8_k5uar")
+
+[node name="SfxGmtk26PlayerKnightMove2" type="AudioStreamPlayer" parent="Move/Knight" unique_id=395274474]
+stream = ExtResource("9_3yw6u")
+
+[node name="Rook" type="Node" parent="Move" unique_id=1428887366]
+script = ExtResource("6_3a0rs")
+metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
+
+[node name="SfxGmtk26PlayerRookMove1" type="AudioStreamPlayer" parent="Move/Rook" unique_id=1873874784]
+stream = ExtResource("10_2y5yo")
+
+[node name="SfxGmtk26PlayerRookMove2" type="AudioStreamPlayer" parent="Move/Rook" unique_id=308970469]
+stream = ExtResource("11_i2idq")
+
+[node name="Bishop" type="Node" parent="Move" unique_id=582567875]
+script = ExtResource("6_3a0rs")
+metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
+
+[node name="SfxGmtk26PlayerBishopMove" type="AudioStreamPlayer" parent="Move/Bishop" unique_id=1472522412]
+stream = ExtResource("12_s1kmf")
+
+[node name="Landing" type="Node" parent="." unique_id=898883867]
+unique_name_in_owner = true
+script = ExtResource("6_3a0rs")
+metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
+
+[node name="SfxGmtk26CharLandingTile1" type="AudioStreamPlayer" parent="Landing" unique_id=388711273]
+stream = ExtResource("10_k5uar")
+
+[node name="SfxGmtk26CharLandingTile2" type="AudioStreamPlayer" parent="Landing" unique_id=1662593098]
+stream = ExtResource("11_3yw6u")
+
+[node name="SfxGmtk26CharLandingTile3" type="AudioStreamPlayer" parent="Landing" unique_id=1603651298]
+stream = ExtResource("12_2y5yo")
+
+[node name="Death" type="Node" parent="." unique_id=1764043447]
+unique_name_in_owner = true
+script = ExtResource("6_3a0rs")
+metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
+
+[node name="SfxSfxGmtk26CharAiDeath1" type="AudioStreamPlayer" parent="Death" unique_id=905799728]
+stream = ExtResource("13_i2idq")
+
+[node name="SfxSfxGmtk26CharAiDeath2" type="AudioStreamPlayer" parent="Death" unique_id=1576403344]
+stream = ExtResource("14_s1kmf")
+
+[node name="SfxSfxGmtk26CharAiDeath3" type="AudioStreamPlayer" parent="Death" unique_id=2036762903]
+stream = ExtResource("15_ltwt7")
+
+[node name="Attack" type="Node" parent="." unique_id=475454313]
+unique_name_in_owner = true
+script = ExtResource("6_qg7lu")
+metadata/_custom_type_script = "uid://cus2b2f4colj6"
+
+[node name="Knight" type="Node" parent="Attack" unique_id=92854940]
+script = ExtResource("6_3a0rs")
+metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
+
+[node name="SfxGmtk26PlayerKnightMoveAttack" type="AudioStreamPlayer" parent="Attack/Knight" unique_id=196640371]
+stream = ExtResource("19_2y5yo")
+
+[node name="Rook" type="Node" parent="Attack" unique_id=856493845]
+script = ExtResource("6_3a0rs")
+metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
+
+[node name="SfxGmtk26PlayerRookMoveAttack" type="AudioStreamPlayer" parent="Attack/Rook" unique_id=1401501291]
+stream = ExtResource("20_i2idq")
+
+[node name="Bishop" type="Node" parent="Attack" unique_id=720520286]
+script = ExtResource("6_3a0rs")
+metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
+
+[node name="SfxGmtk26PlayerBishopAttack" type="AudioStreamPlayer" parent="Attack/Bishop" unique_id=1028699212]
+stream = ExtResource("21_s1kmf")

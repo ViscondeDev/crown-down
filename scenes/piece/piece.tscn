@@ -5,6 +5,17 @@
 [ext_resource type="Script" uid="uid://oeyu1nrn22mj" path="res://scenes/piece/piece_movement.gd" id="3_i7cdl"]
 [ext_resource type="Curve" uid="uid://s4x713h4exq2" path="res://resources/movement_curve.tres" id="4_ajk4a"]
 [ext_resource type="Curve" uid="uid://djlemmwnx1xya" path="res://resources/tilt_curve.tres" id="5_mu34b"]
+[ext_resource type="Script" uid="uid://b7hcvutnwxc2i" path="res://core/random_sound.gd" id="6_30h2f"]
+[ext_resource type="AudioStream" uid="uid://q3dxh1lcpk0a" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_char_AI_Move_1.wav" id="6_m1qdd"]
+[ext_resource type="AudioStream" uid="uid://0v28ls3xw2vi" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_char_AI_Move_2.wav" id="7_30h2f"]
+[ext_resource type="AudioStream" uid="uid://hw46srrm1gly" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_char_AI_Move_3.wav" id="8_cn2d8"]
+[ext_resource type="AudioStream" uid="uid://bgwip06feci46" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_char_Landing_tile_1.wav" id="9_wqjuk"]
+[ext_resource type="AudioStream" uid="uid://bk8ui7boabjqc" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_char_Landing_tile_2.wav" id="10_08y23"]
+[ext_resource type="AudioStream" uid="uid://ls3os4uvxvy4" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_char_Landing_tile_3.wav" id="11_p2hkr"]
+[ext_resource type="AudioStream" uid="uid://cysdyo3f1uk7g" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_1.wav" id="12_lvr07"]
+[ext_resource type="AudioStream" uid="uid://cosyyyrps2jih" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_2.wav" id="13_7sbkb"]
+[ext_resource type="AudioStream" uid="uid://bfd3khrfdjm2" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_3.wav" id="14_602ct"]
+[ext_resource type="AudioStream" uid="uid://cm1xcokxjo1lk" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_char_AI_Attack.wav" id="16_cn2d8"]
 
 [node name="Piece" type="Node2D" unique_id=1987036587]
 script = ExtResource("1_huli3")
@@ -25,3 +36,53 @@ movement_curve = ExtResource("4_ajk4a")
 tilt_curve = ExtResource("5_mu34b")
 movement_duration = 0.8
 metadata/_custom_type_script = "uid://oeyu1nrn22mj"
+
+[node name="Move" type="Node" parent="." unique_id=817551443]
+unique_name_in_owner = true
+script = ExtResource("6_30h2f")
+metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
+
+[node name="SfxGmtk26CharAiMove1" type="AudioStreamPlayer" parent="Move" unique_id=1860708575]
+stream = ExtResource("6_m1qdd")
+
+[node name="SfxGmtk26CharAiMove2" type="AudioStreamPlayer" parent="Move" unique_id=1303297496]
+stream = ExtResource("7_30h2f")
+
+[node name="SfxGmtk26CharAiMove3" type="AudioStreamPlayer" parent="Move" unique_id=283561960]
+stream = ExtResource("8_cn2d8")
+
+[node name="Landing" type="Node" parent="." unique_id=470016070]
+unique_name_in_owner = true
+script = ExtResource("6_30h2f")
+metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
+
+[node name="SfxGmtk26CharLandingTile1" type="AudioStreamPlayer" parent="Landing" unique_id=1503507979]
+stream = ExtResource("9_wqjuk")
+
+[node name="SfxGmtk26CharLandingTile2" type="AudioStreamPlayer" parent="Landing" unique_id=1046735245]
+stream = ExtResource("10_08y23")
+
+[node name="SfxGmtk26CharLandingTile3" type="AudioStreamPlayer" parent="Landing" unique_id=970425814]
+stream = ExtResource("11_p2hkr")
+
+[node name="Death" type="Node" parent="." unique_id=77572742]
+unique_name_in_owner = true
+script = ExtResource("6_30h2f")
+metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
+
+[node name="SfxSfxGmtk26CharAiDeath1" type="AudioStreamPlayer" parent="Death" unique_id=1607428304]
+stream = ExtResource("12_lvr07")
+
+[node name="SfxSfxGmtk26CharAiDeath2" type="AudioStreamPlayer" parent="Death" unique_id=148678676]
+stream = ExtResource("13_7sbkb")
+
+[node name="SfxSfxGmtk26CharAiDeath3" type="AudioStreamPlayer" parent="Death" unique_id=401758537]
+stream = ExtResource("14_602ct")
+
+[node name="Attack" type="Node" parent="." unique_id=348339003]
+unique_name_in_owner = true
+script = ExtResource("6_30h2f")
+metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
+
+[node name="SfxGmtk26CharAiAttack" type="AudioStreamPlayer" parent="Attack" unique_id=313743580]
+stream = ExtResource("16_cn2d8")

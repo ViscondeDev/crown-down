@@ -14,6 +14,8 @@ var selection_type := {
 	"knight": Selection.KNIGHT,
 }
 
+var current_selection
+
 enum Selection {
 	KNIGHT = 0,
 	BISHOP = 1,
@@ -27,6 +29,7 @@ enum SelectionState {
 
 func get_selection(selection: Selection, state: Variant) -> void:
 	if state == SelectionState.SELECTED:
+		current_selection = selection
 		possible_moves = movement_keys[selection].get_valid_tiles(
 			current_board_position,
 			is_friendly,
