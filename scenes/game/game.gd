@@ -98,6 +98,8 @@ func _on_pause_pressed() -> void:
 
 
 func _on_pause_screen_quit() -> void:
+	AudioManager.current.gameplay.stop()
+	AudioManager.current.menu.trigger()
 	quit.emit()
 
 

@@ -10,11 +10,13 @@ var current_instance: Node = null
 
 func _ready() -> void:
 	_transition_scene(SceneType.MAIN)
-	
+
 	if not FileAccess.file_exists(SAVE_FILE):
 		var file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
 		file.store_string('{"progress": 1, "playthrough": 1}')
 		file.close()
+	AudioManager.current.menu.trigger()
+	print("instaciated")
 
 
 enum MainSceneAction {
@@ -26,6 +28,8 @@ func _main_scene_action(type: MainSceneAction):
 	match type:
 		MainSceneAction.START:
 			_transition_scene(SceneType.GAME, 1)
+			AudioManager.current.menu.stop()
+			AudioManager.current.gameplay.trigger()
 		MainSceneAction.LEVEL_SELECT:
 			_transition_scene(SceneType.LEVEL_SELECT)
 		MainSceneAction.CREDITS:
@@ -42,8 +46,10 @@ func _level_select_action(type: LevelActionAction, extra):
 			_transition_scene(SceneType.MAIN)
 		LevelActionAction.LEVEL_SELECT:
 			_transition_scene(SceneType.GAME, extra)
-	
-	
+			AudioManager.current.menu.stop()
+			AudioManager.current.gameplay.trigger()
+
+
 enum SceneType {
 	MAIN,
 	LEVEL_SELECT,
@@ -53,10 +59,10 @@ func _transition_scene(to: SceneType, level: int = 0):
 	screen_cover.show()
 	var tween = create_tween()
 	tween.tween_method(_cover_fade, 0.0, 1.0, 0.2)
-	
+
 	if current_instance != null:
 		tween.tween_callback(current_instance.queue_free)
-		
+
 	tween.tween_callback(_switch_scene.bind(to, level))
 	tween.tween_method(_cover_fade, 1.0, 0.0, 0.2)
 	tween.tween_callback(screen_cover.hide)
@@ -68,12 +74,12 @@ func _switch_scene(to: SceneType, level: int):
 			current_scene = load("res://scenes/ui scenes/main_screen/MainScreen.tscn")
 			current_instance = current_scene.instantiate()
 			current_instance.main_screen_action.connect(_main_scene_action)
-			
+
 		SceneType.LEVEL_SELECT:
 			current_scene = load("res://scenes/ui scenes/level_select/level_select.tscn")
 			current_instance = current_scene.instantiate()
 			current_instance.level_select_action.connect(_level_select_action)
-		
+
 		SceneType.GAME:
 			current_scene = load("res://scenes/game/game.tscn")
 			current_instance = current_scene.instantiate()
@@ -81,7 +87,7 @@ func _switch_scene(to: SceneType, level: int):
 			current_instance.update_level.connect(_update_level)
 			current_instance.quit.connect(_transition_scene.bind(SceneType.MAIN))
 			current_instance.level_page.connect(_transition_scene.bind(SceneType.LEVEL_SELECT))
-	
+
 	scene.add_child(current_instance)
 
 
@@ -95,11 +101,11 @@ func _update_level(level: int):
 	obj["progress"] = level if obj["progress"] < level else obj["progress"]
 	file.close()
 	var playthrough = obj["playthrough"]
-	
+
 	file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
 	file.store_string(JSON.stringify(obj))
 	file.close()
-	
+
 	if playthrough <= 8:
 		_transition_scene(SceneType.GAME, playthrough)
 	else:

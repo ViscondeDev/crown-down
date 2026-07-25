@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://b11hepplc4xnf"]
 
 [ext_resource type="Script" uid="uid://yw008lujwxx5" path="res://scenes/controller.gd" id="1_60fnl"]
+[ext_resource type="Script" uid="uid://00q06gra4uhe" path="res://core/audio_manager.gd" id="2_eq701"]
+[ext_resource type="AudioStream" uid="uid://b8pjexuyc3e4x" path="res://assets/Smash/menu/mus_menu_placeholder_part_1.wav" id="3_swhsy"]
+[ext_resource type="AudioStream" uid="uid://bgkrs637jxbrg" path="res://assets/Smash/menu/mus_menu_placeholder_part_1_rev_tail.wav" id="4_16uoy"]
+[ext_resource type="AudioStream" uid="uid://cpunp4nbiso7v" path="res://assets/Smash/menu/mus_menu_placeholder_Lp.wav" id="5_kbhpp"]
+[ext_resource type="AudioStream" uid="uid://d04i01pe3qjov" path="res://assets/Smash/menu/mus_menu_placeholder_Lp_Rev_Tail.wav" id="6_742vw"]
+[ext_resource type="Script" uid="uid://b31r48xw1kk6h" path="res://core/looping_sections.gd" id="7_16uoy"]
+[ext_resource type="AudioStream" uid="uid://cj5qx5psuy5fb" path="res://assets/Smash/gameplay/mus_gameplay_main_lp_80_bpm_placeholder.wav" id="8_742vw"]
+[ext_resource type="AudioStream" uid="uid://b62lv0lquycla" path="res://assets/Smash/gameplay/mus_gameplay_main_lp_80_bpm_placeholder_rev_tail.wav" id="9_b2sql"]
 
 [node name="Controller" type="Node" unique_id=1204514521]
 script = ExtResource("1_60fnl")
@@ -18,3 +26,47 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[node name="AudioManager" type="Node" parent="." unique_id=1983119574 node_paths=PackedStringArray("menu", "gameplay")]
+process_mode = 3
+script = ExtResource("2_eq701")
+menu = NodePath("MainMenu")
+gameplay = NodePath("GamePlay")
+
+[node name="MainMenu" type="Node" parent="AudioManager" unique_id=1870834483 node_paths=PackedStringArray("intro", "intro_tail", "loop", "loop_tail")]
+script = ExtResource("7_16uoy")
+intro = NodePath("Intro")
+intro_tail = NodePath("IntroTail")
+loop = NodePath("Loop")
+loop_tail = NodePath("LoopTail")
+
+[node name="Intro" type="AudioStreamPlayer" parent="AudioManager/MainMenu" unique_id=558664393]
+stream = ExtResource("3_swhsy")
+
+[node name="IntroTail" type="AudioStreamPlayer" parent="AudioManager/MainMenu" unique_id=1926140475]
+stream = ExtResource("4_16uoy")
+
+[node name="Loop" type="AudioStreamPlayer" parent="AudioManager/MainMenu" unique_id=781261735]
+stream = ExtResource("5_kbhpp")
+
+[node name="LoopTail" type="AudioStreamPlayer" parent="AudioManager/MainMenu" unique_id=2086832807]
+stream = ExtResource("6_742vw")
+
+[node name="GamePlay" type="Node" parent="AudioManager" unique_id=1555070975 node_paths=PackedStringArray("intro", "intro_tail", "loop", "loop_tail")]
+script = ExtResource("7_16uoy")
+intro = NodePath("Intro")
+intro_tail = NodePath("IntroTail")
+loop = NodePath("Loop")
+loop_tail = NodePath("LoopTail")
+
+[node name="Intro" type="AudioStreamPlayer" parent="AudioManager/GamePlay" unique_id=451310578]
+stream = ExtResource("8_742vw")
+
+[node name="IntroTail" type="AudioStreamPlayer" parent="AudioManager/GamePlay" unique_id=952517519]
+stream = ExtResource("9_b2sql")
+
+[node name="Loop" type="AudioStreamPlayer" parent="AudioManager/GamePlay" unique_id=986706969]
+stream = ExtResource("8_742vw")
+
+[node name="LoopTail" type="AudioStreamPlayer" parent="AudioManager/GamePlay" unique_id=996207978]
+stream = ExtResource("8_742vw")
