@@ -14,6 +14,7 @@ func _ready() -> void:
 
 
 func trigger() -> void:
+	AudioManager.current.transition.play()
 	if intro != null:
 		intro.play()
 

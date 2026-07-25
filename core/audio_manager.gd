@@ -4,6 +4,7 @@ extends Node
 
 @export var menu: LoopingMusic
 @export var gameplay: LoopingMusic
+@export var transition: AudioStreamPlayer
 
 static var current: AudioManager
 
