@@ -34,6 +34,7 @@ var current_instance: Node = null
 
 func _ready() -> void:
 	_load_level(level)
+	%Particles.preprocess = 10
 
 	for i in range(len(power_selections)):
 		power_selections[i].disabled = false
