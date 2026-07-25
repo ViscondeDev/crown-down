@@ -7,6 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://685rf4oha7m3" path="res://assets/Card-layout-disabled.png" id="5_bdhmt"]
 [ext_resource type="Texture2D" uid="uid://cmetltbtg0ww5" path="res://assets/Powers.png" id="5_lfrn8"]
 [ext_resource type="Script" uid="uid://cyn7mo3e1b17q" path="res://scenes/game/pause_screen.gd" id="6_5i0tg"]
+[ext_resource type="AudioStream" uid="uid://dimcf8er32os" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_1.wav" id="8_4j704"]
+[ext_resource type="Script" uid="uid://mxrn4l0bnf4k" path="res://scenes/ui scenes/hover_ui_sound.gd" id="8_kp23o"]
+[ext_resource type="AudioStream" uid="uid://triwmh1a53kf" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_2.wav" id="9_kp23o"]
+[ext_resource type="AudioStream" uid="uid://cdfclyhvw8un0" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_3.wav" id="10_5jirj"]
+[ext_resource type="AudioStream" uid="uid://bu2sp1v87ktbh" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_gameplay_menu_hover_1.wav" id="12_5v6r0"]
+[ext_resource type="AudioStream" uid="uid://dhp01v51ybvkv" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_choose_bishop_button.wav" id="12_ftsea"]
+[ext_resource type="AudioStream" uid="uid://cpjj4b3op8bw2" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_choose_knight_button.wav" id="13_otnwt"]
+[ext_resource type="AudioStream" uid="uid://kxu8ahqtfxw4" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_gameplay_menu_hover_2.wav" id="13_uyinl"]
+[ext_resource type="AudioStream" uid="uid://cuoyduaxmb7fr" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_choose_rook_button.wav" id="14_3xj4h"]
+[ext_resource type="AudioStream" uid="uid://6s2ympvl5nog" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_gameplay_menu_hover_3.wav" id="14_10c2w"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2oa66"]
 lifetime_randomness = 0.1
@@ -394,13 +404,55 @@ theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
 theme_override_fonts/font = ExtResource("2_7h61r")
 text = "Paused"
 
+[node name="HoverSound" type="Node" parent="." unique_id=1227201142]
+script = ExtResource("8_kp23o")
+
+[node name="SfxUiGmtk26HoverMenu1" type="AudioStreamPlayer" parent="HoverSound" unique_id=1399614114]
+stream = ExtResource("8_4j704")
+
+[node name="SfxUiGmtk26HoverMenu2" type="AudioStreamPlayer" parent="HoverSound" unique_id=1386569260]
+stream = ExtResource("9_kp23o")
+
+[node name="SfxUiGmtk26HoverMenu3" type="AudioStreamPlayer" parent="HoverSound" unique_id=1903755269]
+stream = ExtResource("10_5jirj")
+
+[node name="HoverSoundGameplay" type="Node" parent="." unique_id=816593053]
+script = ExtResource("8_kp23o")
+
+[node name="SfxUiGmtk26GameplayMenuHover1" type="AudioStreamPlayer" parent="HoverSoundGameplay" unique_id=223651968]
+stream = ExtResource("12_5v6r0")
+
+[node name="SfxUiGmtk26GameplayMenuHover2" type="AudioStreamPlayer" parent="HoverSoundGameplay" unique_id=563738655]
+stream = ExtResource("13_uyinl")
+
+[node name="SfxUiGmtk26GameplayMenuHover3" type="AudioStreamPlayer" parent="HoverSoundGameplay" unique_id=1949099440]
+stream = ExtResource("14_10c2w")
+
+[node name="SfxUiGmtk26ChooseBishopButton" type="AudioStreamPlayer" parent="." unique_id=383315401]
+unique_name_in_owner = true
+stream = ExtResource("12_ftsea")
+
+[node name="SfxUiGmtk26ChooseKnightButton" type="AudioStreamPlayer" parent="." unique_id=916248488]
+unique_name_in_owner = true
+stream = ExtResource("13_otnwt")
+
+[node name="SfxUiGmtk26ChooseRookButton" type="AudioStreamPlayer" parent="." unique_id=1606234090]
+unique_name_in_owner = true
+stream = ExtResource("14_3xj4h")
+
+[connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/Pause" to="HoverSound" method="_on_hover"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/Pause" to="." method="_on_pause_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/GridContainer/Knight" to="HoverSoundGameplay" method="_on_hover"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Knight" to="." method="_select" binds= [0]]
+[connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/GridContainer/Bishop" to="HoverSoundGameplay" method="_on_hover"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Bishop" to="." method="_select" binds= [1]]
-[connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Rook" to="CanvasLayer/UI/SideBar/GridContainer/Rook" method="_on_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/GridContainer/Rook" to="HoverSoundGameplay" method="_on_hover"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Rook" to="." method="_select" binds= [2]]
 [connection signal="quit" from="CanvasLayer/UI/PauseScreen" to="." method="_on_pause_screen_quit"]
 [connection signal="restart" from="CanvasLayer/UI/PauseScreen" to="." method="_on_pause_screen_restart"]
+[connection signal="mouse_entered" from="CanvasLayer/UI/PauseScreen/Resume" to="HoverSound" method="_on_hover"]
 [connection signal="pressed" from="CanvasLayer/UI/PauseScreen/Resume" to="CanvasLayer/UI/PauseScreen" method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/UI/PauseScreen/RestartLevel" to="HoverSound" method="_on_hover"]
 [connection signal="pressed" from="CanvasLayer/UI/PauseScreen/RestartLevel" to="CanvasLayer/UI/PauseScreen" method="_on_restart_level_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/UI/PauseScreen/Quit" to="HoverSound" method="_on_hover"]
 [connection signal="pressed" from="CanvasLayer/UI/PauseScreen/Quit" to="CanvasLayer/UI/PauseScreen" method="_on_quit_pressed"]

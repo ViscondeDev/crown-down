@@ -4,6 +4,10 @@
 [ext_resource type="FontFile" uid="uid://tigroghm0sss" path="res://assets/PixelatedEleganceRegular-ovawB.ttf" id="2_4qaat"]
 [ext_resource type="Texture2D" uid="uid://fhovsch1any4" path="res://assets/Card-layout.png" id="3_4rbne"]
 [ext_resource type="Texture2D" uid="uid://diabn1shat6bd" path="res://assets/Card-layout-hover.png" id="4_0augn"]
+[ext_resource type="Script" uid="uid://mxrn4l0bnf4k" path="res://scenes/ui scenes/hover_ui_sound.gd" id="5_ci0v2"]
+[ext_resource type="AudioStream" uid="uid://dimcf8er32os" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_1.wav" id="6_w3w8m"]
+[ext_resource type="AudioStream" uid="uid://triwmh1a53kf" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_2.wav" id="7_bh44e"]
+[ext_resource type="AudioStream" uid="uid://cdfclyhvw8un0" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_3.wav" id="8_xcrtt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_svp2y"]
 texture = ExtResource("3_4rbne")
@@ -124,6 +128,21 @@ theme_override_font_sizes/font_size = 34
 text = "[Game title]"
 horizontal_alignment = 1
 
+[node name="Node" type="Node" parent="." unique_id=101912238]
+script = ExtResource("5_ci0v2")
+
+[node name="SfxUiGmtk26HoverMenu1" type="AudioStreamPlayer" parent="Node" unique_id=1193979693]
+stream = ExtResource("6_w3w8m")
+
+[node name="SfxUiGmtk26HoverMenu2" type="AudioStreamPlayer" parent="Node" unique_id=1037670171]
+stream = ExtResource("7_bh44e")
+
+[node name="SfxUiGmtk26HoverMenu3" type="AudioStreamPlayer" parent="Node" unique_id=1656010269]
+stream = ExtResource("8_xcrtt")
+
+[connection signal="mouse_entered" from="Start" to="Node" method="_on_hover"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="LevelSelect" to="Node" method="_on_hover"]
 [connection signal="pressed" from="LevelSelect" to="." method="_on_level_select_pressed"]
+[connection signal="mouse_entered" from="Credits" to="Node" method="_on_hover"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

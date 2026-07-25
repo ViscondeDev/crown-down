@@ -45,7 +45,7 @@ func _load_level(to_load: int):
 		current_instance.queue_free()
 		loaded_scene = null
 		await get_tree().create_timer(0.5).timeout
-	
+
 	match to_load:
 		1:
 			loaded_scene = load("res://scenes/levels/level1.tscn")
@@ -90,6 +90,13 @@ func _update_selection(_selection: Selection, state: SelectionState):
 
 func _select(selection: Selection):
 	Level.current.update_selection.emit(selection, SelectionState.SELECTED)
+	match selection:
+		Selection.BISHOP:
+			%SfxUiGmtk26ChooseBishopButton.play()
+		Selection.KNIGHT:
+			%SfxUiGmtk26ChooseKnightButton.play()
+		Selection.ROOK:
+			%SfxUiGmtk26ChooseRookButton.play()
 
 
 func _on_pause_pressed() -> void:
@@ -105,3 +112,9 @@ func _on_pause_screen_quit() -> void:
 
 func _on_pause_screen_restart() -> void:
 	_load_level(level)
+
+func _on_hover():
+	pass
+
+func _on_click():
+	pass
