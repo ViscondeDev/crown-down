@@ -48,7 +48,8 @@ func _load_level(to_load: int):
 	match to_load:
 		1:
 			loaded_scene = load("res://scenes/levels/level1.tscn")
-			%Intro.play("intro")
+			if current_instance = null:
+				%Intro.play("intro")
 		2:
 			loaded_scene = load("res://scenes/levels/level2.tscn")
 		3:
