@@ -68,24 +68,18 @@ func _transition_scene(to: SceneType, level: int = 0):
 		SceneType.LEVEL_SELECT:
 			current_scene = load("res://scenes/ui scenes/level_select/level_select.tscn")
 			current_instance = current_scene.instantiate()
-			if level > 0 and level <= 8:
-				current_instance.current = level
-			else:
-				current_instance.level_select_action.connect(_level_select_action)
+			current_instance.level_select_action.connect(_level_select_action)
 		
 		SceneType.GAME:
 			current_scene = load("res://scenes/game/game.tscn")
 			current_instance = current_scene.instantiate()
 			current_instance.level = level
-			current_instance.quit.connect(_quit_game)
 			current_instance.update_level.connect(_update_level)
+			current_instance.quit.connect(_transition_scene.bind(SceneType.MAIN))
+			current_instance.level_page.connect(_transition_scene.bind(SceneType.LEVEL_SELECT))
 
 	remove_child(loadscreen_instance)
 	scene.add_child(current_instance)
-
-
-func _quit_game():
-	_transition_scene(SceneType.MAIN)
 
 
 func _cover_fade(val: float):
