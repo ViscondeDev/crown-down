@@ -62,33 +62,45 @@ func _transition_scene(to: SceneType, level: int = 0):
 
 	if current_instance != null:
 		tween.tween_callback(current_instance.queue_free)
-
-	tween.tween_callback(_switch_scene.bind(to, level))
-	tween.tween_method(_cover_fade, 1.0, 0.0, 0.2)
-	tween.tween_callback(screen_cover.hide)
+	
+	var task = WorkerThreadPool.add_task.bind(_switch_scene.bind(to, level))
+	tween.tween_callback(task)
 
 
 func _switch_scene(to: SceneType, level: int):
+	var instance: Node = null
+	var packed_scene: PackedScene = null
+	
 	match to:
 		SceneType.MAIN:
-			current_scene = load("res://scenes/ui scenes/main_screen/MainScreen.tscn")
-			current_instance = current_scene.instantiate()
-			current_instance.main_screen_action.connect(_main_scene_action)
+			packed_scene = load("res://scenes/ui scenes/main_screen/MainScreen.tscn")
+			instance = packed_scene.instantiate()
+			instance.main_screen_action.connect(_main_scene_action)
 
 		SceneType.LEVEL_SELECT:
-			current_scene = load("res://scenes/ui scenes/level_select/level_select.tscn")
-			current_instance = current_scene.instantiate()
-			current_instance.level_select_action.connect(_level_select_action)
+			packed_scene = load("res://scenes/ui scenes/level_select/level_select.tscn")
+			instance = packed_scene.instantiate()
+			instance.level_select_action.connect(_level_select_action)
 
 		SceneType.GAME:
-			current_scene = load("res://scenes/game/game.tscn")
-			current_instance = current_scene.instantiate()
-			current_instance.level = level
-			current_instance.update_level.connect(_update_level)
-			current_instance.quit.connect(_transition_scene.bind(SceneType.MAIN))
-			current_instance.level_page.connect(_transition_scene.bind(SceneType.LEVEL_SELECT))
+			packed_scene = load("res://scenes/game/game.tscn")
+			instance = packed_scene.instantiate()
+			instance.level = level
+			instance.update_level.connect(_update_level)
+			instance.quit.connect(_transition_scene.bind(SceneType.MAIN))
+			instance.level_page.connect(_transition_scene.bind(SceneType.LEVEL_SELECT))
+	
+	_load_scenes.call_deferred(packed_scene, instance)
 
+
+func _load_scenes(packed_scene: PackedScene, instance: Node):
+	current_scene = packed_scene
+	current_instance = instance
 	scene.add_child(current_instance)
+	
+	var tween = create_tween()
+	tween.tween_method(_cover_fade, 1.0, 0.0, 0.2)
+	tween.tween_callback(screen_cover.hide)
 
 
 func _cover_fade(val: float):
