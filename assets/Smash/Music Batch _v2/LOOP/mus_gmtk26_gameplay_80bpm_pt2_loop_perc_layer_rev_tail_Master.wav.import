@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://drvjbqkibs1th"
+path="res://.godot/imported/mus_gmtk26_gameplay_80bpm_pt2_loop_perc_layer_rev_tail_Master.wav-c09103f7e28d706bb6ce76d9317a77fa.sample"
+
+[deps]
+
+source_file="res://assets/Smash/Music Batch _v2/LOOP/mus_gmtk26_gameplay_80bpm_pt2_loop_perc_layer_rev_tail_Master.wav"
+dest_files=["res://.godot/imported/mus_gmtk26_gameplay_80bpm_pt2_loop_perc_layer_rev_tail_Master.wav-c09103f7e28d706bb6ce76d9317a77fa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
