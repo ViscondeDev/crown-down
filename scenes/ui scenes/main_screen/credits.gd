@@ -1,15 +1,11 @@
 extends CanvasLayer
 
 @onready var back_button: Button = $Back
-@onready var texts: Array[Label] = [
-	$CreditTitle,
-	$Title1,
-	$Title2,
-	$Title3,
-]
+@onready var texts: Array[Label] = [$CreditTitle, $Names, $Does]
 @onready var screen_cover = %ScreenCover
 @onready var loading_text = %LoadingText
 @onready var credit_screen = %Credits
+
 
 func _ready() -> void:
 	set_alpha(0.0)

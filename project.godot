@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="gmtk_2026"
+config/name="Crown Down"
 run/main_scene="uid://b11hepplc4xnf"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/image="uid://cvwmjdrixagxm"

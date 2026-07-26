@@ -835,14 +835,17 @@ stream = ExtResource("14_10c2w")
 [node name="SfxUiGmtk26ChooseBishopButton" type="AudioStreamPlayer" parent="." unique_id=383315401]
 unique_name_in_owner = true
 stream = ExtResource("12_ftsea")
+volume_db = 3.0
 
 [node name="SfxUiGmtk26ChooseKnightButton" type="AudioStreamPlayer" parent="." unique_id=916248488]
 unique_name_in_owner = true
 stream = ExtResource("13_otnwt")
+volume_db = 3.0
 
 [node name="SfxUiGmtk26ChooseRookButton" type="AudioStreamPlayer" parent="." unique_id=1606234090]
 unique_name_in_owner = true
 stream = ExtResource("14_3xj4h")
+volume_db = 3.0
 
 [node name="SfxUiGmtk26Click" type="AudioStreamPlayer" parent="." unique_id=1342399376]
 unique_name_in_owner = true
@@ -877,16 +880,13 @@ stream = ExtResource("27_l2dhg")
 stream = ExtResource("28_firvq")
 
 [connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/Pause" to="HoverSound" method="_on_hover"]
-[connection signal="pressed" from="CanvasLayer/UI/SideBar/Pause" to="." method="_on_click"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/SideBar/Pause" to="." method="_on_click"]
 [connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/GridContainer/Rook" to="HoverSoundGameplay" method="_on_hover"]
-[connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Rook" to="." method="_on_click"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Rook" to="." method="_select" binds= [2]]
 [connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/GridContainer/Bishop" to="HoverSoundGameplay" method="_on_hover"]
-[connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Bishop" to="." method="_on_click"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Bishop" to="." method="_select" binds= [1]]
 [connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/GridContainer/Knight" to="HoverSoundGameplay" method="_on_hover"]
-[connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Knight" to="." method="_on_click"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Knight" to="." method="_select" binds= [0]]
 [connection signal="quit" from="CanvasLayer/UI/PauseScreen" to="." method="_on_pause_screen_quit"]
 [connection signal="restart" from="CanvasLayer/UI/PauseScreen" to="." method="_on_pause_screen_restart"]

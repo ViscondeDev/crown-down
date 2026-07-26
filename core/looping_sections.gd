@@ -8,10 +8,7 @@ extends Node
 @export var loop_tail: AudioStreamPlayer
 @export var play_transition: bool
 
-
-func _ready() -> void:
-	loop.finished.connect(_loop_again)
-	intro.finished.connect(_start_loop)
+var playing: bool
 
 
 func trigger() -> void:
@@ -19,6 +16,7 @@ func trigger() -> void:
 		AudioManager.current.transition.play()
 		await get_tree().create_timer(1.8).timeout
 	intro.play()
+	await get_tree.create_timer(intro.stream.get_lenght())
 
 
 func stop() -> void:
