@@ -8,6 +8,8 @@ var current_instance: Node = null
 @onready var scene = $Scene
 @onready var screen_cover = %ScreenCover
 @onready var loading_text = %LoadingText
+@onready var credit_screen = %Credits
+
 
 func _ready() -> void:
 	_transition_scene(SceneType.MAIN)
@@ -34,7 +36,16 @@ func _main_scene_action(type: MainSceneAction):
 		MainSceneAction.LEVEL_SELECT:
 			_transition_scene(SceneType.LEVEL_SELECT)
 		MainSceneAction.CREDITS:
-			print("Credits not created yet")
+			_open_credits()
+
+
+func _open_credits():
+	screen_cover.show()
+	credit_screen.show()
+	
+	var tween = create_tween()
+	tween.tween_method(_cover_fade, 0.0, 1.0, 0.1)
+	tween.tween_method(credit_screen.set_alpha, 0.0, 1.0, 0.1)
 
 
 enum LevelActionAction {
@@ -66,7 +77,6 @@ func _transition_scene(to: SceneType, level: int = 0):
 
 	if current_instance != null:
 		tween.tween_callback(current_instance.queue_free)
-
 	tween.tween_callback(_switch_scene.bind(to, level))
 
 
