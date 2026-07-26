@@ -17,6 +17,22 @@
 [ext_resource type="AudioStream" uid="uid://bfd3khrfdjm2" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_3.wav" id="14_602ct"]
 [ext_resource type="AudioStream" uid="uid://cm1xcokxjo1lk" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_char_AI_Attack.wav" id="16_cn2d8"]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uwoax"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(8, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -156.9
+angle_max = 221.50002
+direction = Vector3(0, -1, 0)
+spread = 24.545
+initial_velocity_min = 59.78
+initial_velocity_max = 83.82
+gravity = Vector3(0, 120, 0)
+scale_max = 1.5
+hue_variation_min = -0.13000003
+hue_variation_max = 0.12999998
+
 [node name="Piece" type="Node2D" unique_id=1987036587]
 script = ExtResource("1_huli3")
 metadata/_custom_type_script = "uid://0j5eilfv1wyw"
@@ -86,3 +102,11 @@ metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
 
 [node name="SfxGmtk26CharAiAttack" type="AudioStreamPlayer" parent="Attack" unique_id=313743580]
 stream = ExtResource("16_cn2d8")
+
+[node name="DeathParticles" type="GPUParticles2D" parent="." unique_id=2025134450]
+position = Vector2(0, 2)
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_uwoax")

@@ -14,6 +14,7 @@ script = ExtResource("6_8a7m2")
 metadata/_custom_type_script = "uid://27oopufgmga2"
 
 [node name="Level" type="Node2D" unique_id=1820218999]
+y_sort_enabled = true
 script = ExtResource("1_5ntmo")
 metadata/_custom_type_script = "uid://i80q3xsk25x1"
 
