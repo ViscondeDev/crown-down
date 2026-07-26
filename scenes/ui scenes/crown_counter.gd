@@ -6,7 +6,6 @@ var crowns: int
 
 
 func update(count: int):
-	print("called to count crown down")
 	if crowns != count:
 		text = str(count)
 		crowns = count
