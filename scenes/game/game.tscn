@@ -188,17 +188,17 @@ texture_margin_top = 5.0
 texture_margin_right = 5.0
 texture_margin_bottom = 5.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2oa66"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdhmt"]
 atlas = ExtResource("5_lfrn8")
-region = Rect2(64, 0, 32, 32)
+region = Rect2(31, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5i0tg"]
 atlas = ExtResource("5_lfrn8")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bdhmt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oa66"]
 atlas = ExtResource("5_lfrn8")
-region = Rect2(31, 0, 32, 32)
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="Animation" id="Animation_uyinl"]
 length = 0.001
@@ -217,7 +217,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("%Bishop:offset_transform_position")
+tracks/1/path = NodePath("GridContainer/Bishop:offset_transform_position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -229,7 +229,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("%Rook:offset_transform_position")
+tracks/2/path = NodePath("GridContainer/Rook:offset_transform_position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -284,7 +284,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("%Bishop:offset_transform_position")
+tracks/1/path = NodePath("GridContainer/Bishop:offset_transform_position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -296,7 +296,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("%Rook:offset_transform_position")
+tracks/2/path = NodePath("GridContainer/Rook:offset_transform_position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -512,7 +512,7 @@ offset_right = 84.0
 offset_bottom = 213.0
 theme_override_constants/v_separation = 5
 
-[node name="Knight" type="Button" parent="CanvasLayer/UI/SideBar/GridContainer" unique_id=1241544377]
+[node name="Rook" type="Button" parent="CanvasLayer/UI/SideBar/GridContainer" unique_id=1392467393]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
@@ -525,7 +525,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_kelw5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_87uf6")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_vaxfo")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/SideBar/GridContainer/Knight" unique_id=1864897735]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/SideBar/GridContainer/Rook" unique_id=767516327]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -538,7 +538,7 @@ offset_right = 15.5
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_2oa66")
+texture = SubResource("AtlasTexture_bdhmt")
 
 [node name="Bishop" type="Button" parent="CanvasLayer/UI/SideBar/GridContainer" unique_id=622028191]
 unique_name_in_owner = true
@@ -568,7 +568,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_5i0tg")
 
-[node name="Rook" type="Button" parent="CanvasLayer/UI/SideBar/GridContainer" unique_id=1392467393]
+[node name="Knight" type="Button" parent="CanvasLayer/UI/SideBar/GridContainer" unique_id=1241544377]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
@@ -581,7 +581,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_kelw5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_87uf6")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_vaxfo")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/SideBar/GridContainer/Rook" unique_id=767516327]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/SideBar/GridContainer/Knight" unique_id=1864897735]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -594,7 +594,7 @@ offset_right = 15.5
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_bdhmt")
+texture = SubResource("AtlasTexture_2oa66")
 
 [node name="Intro" type="AnimationPlayer" parent="CanvasLayer/UI/SideBar" unique_id=1845424390]
 unique_name_in_owner = true
@@ -773,15 +773,15 @@ stream = ExtResource("22_4vuph")
 [connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/Pause" to="HoverSound" method="_on_hover"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/Pause" to="." method="_on_click"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/Pause" to="." method="_on_pause_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/GridContainer/Knight" to="HoverSoundGameplay" method="_on_hover"]
-[connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Knight" to="." method="_on_click"]
-[connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Knight" to="." method="_select" binds= [0]]
-[connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/GridContainer/Bishop" to="HoverSoundGameplay" method="_on_hover"]
-[connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Bishop" to="." method="_on_click"]
-[connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Bishop" to="." method="_select" binds= [1]]
 [connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/GridContainer/Rook" to="HoverSoundGameplay" method="_on_hover"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Rook" to="." method="_on_click"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Rook" to="." method="_select" binds= [2]]
+[connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/GridContainer/Bishop" to="HoverSoundGameplay" method="_on_hover"]
+[connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Bishop" to="." method="_on_click"]
+[connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Bishop" to="." method="_select" binds= [1]]
+[connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/GridContainer/Knight" to="HoverSoundGameplay" method="_on_hover"]
+[connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Knight" to="." method="_on_click"]
+[connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Knight" to="." method="_select" binds= [0]]
 [connection signal="quit" from="CanvasLayer/UI/PauseScreen" to="." method="_on_pause_screen_quit"]
 [connection signal="restart" from="CanvasLayer/UI/PauseScreen" to="." method="_on_pause_screen_restart"]
 [connection signal="mouse_entered" from="CanvasLayer/UI/PauseScreen/Resume" to="HoverSound" method="_on_hover"]

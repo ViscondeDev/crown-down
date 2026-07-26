@@ -4,6 +4,7 @@ extends Node2D
 
 signal state_changed(new_state: State)
 signal update_selection(selection: Selection, state: SelectionState)
+signal crowns_changed(crowns: int)
 
 enum State {
 	LOADING = 0,
@@ -41,6 +42,7 @@ func _ready() -> void:
 	state_changed.connect(pawn.watch_game_state)
 	state_changed.connect(enemie_ai.watch_state)
 	update_selection.connect(pawn.get_selection)
+	crowns_changed.emit(Board.current_board.pieces.size() - 1)
 	current_state = State.SELECTION
 
 
@@ -48,6 +50,7 @@ func finish_turn() -> void:
 	match current_state:
 		State.MOVEMENT:
 			current_state = State.ENEMY
+			crowns_changed.emit(Board.current_board.pieces.size() - 1)
 		State.ENEMY:
 			update_selection.emit(Selection.BISHOP, SelectionState.NONE)
 			current_state = State.SELECTION

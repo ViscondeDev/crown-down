@@ -65,6 +65,7 @@ func _load_level(to_load: int):
 		current_instance = loaded_scene.instantiate()
 		current_instance.state_changed.connect(_update_state)
 		current_instance.update_selection.connect(_update_selection)
+		current_instance.crowns_changed.connect(%Crowns.update)
 
 		world.add_child(current_instance)
 		Level.current.update_selection.emit(Selection.ROOK, SelectionState.NONE)
