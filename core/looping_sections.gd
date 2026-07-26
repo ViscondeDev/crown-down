@@ -21,9 +21,7 @@ func trigger() -> void:
 
 func stop() -> void:
 	intro.stop()
-	intro_tail.stop()
 	loop.stop()
-	loop_tail.stop()
 
 
 func _start_loop():

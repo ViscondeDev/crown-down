@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://kxu8ahqtfxw4" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_gameplay_menu_hover_2.wav" id="13_uyinl"]
 [ext_resource type="AudioStream" uid="uid://cuoyduaxmb7fr" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_choose_rook_button.wav" id="14_3xj4h"]
 [ext_resource type="AudioStream" uid="uid://6s2ympvl5nog" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_gameplay_menu_hover_3.wav" id="14_10c2w"]
+[ext_resource type="AudioStream" uid="uid://dsx3loogw61h5" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_click.wav" id="19_3jaai"]
 [ext_resource type="Script" uid="uid://b7hcvutnwxc2i" path="res://core/random_sound.gd" id="19_8b66f"]
 [ext_resource type="AudioStream" uid="uid://bpu4ktsvjree8" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_Char_Death_1.wav" id="20_3jaai"]
 [ext_resource type="AudioStream" uid="uid://d3vxfl6ux0hj1" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_Char_Death_2.wav" id="21_1iff4"]
@@ -611,6 +612,10 @@ stream = ExtResource("13_otnwt")
 unique_name_in_owner = true
 stream = ExtResource("14_3xj4h")
 
+[node name="SfxUiGmtk26Click" type="AudioStreamPlayer" parent="." unique_id=1342399376]
+unique_name_in_owner = true
+stream = ExtResource("19_3jaai")
+
 [node name="DeathSound" type="Node" parent="." unique_id=1389223968]
 unique_name_in_owner = true
 script = ExtResource("19_8b66f")
@@ -626,18 +631,25 @@ stream = ExtResource("21_1iff4")
 stream = ExtResource("22_4vuph")
 
 [connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/Pause" to="HoverSound" method="_on_hover"]
+[connection signal="pressed" from="CanvasLayer/UI/SideBar/Pause" to="." method="_on_click"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/Pause" to="." method="_on_pause_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/GridContainer/Knight" to="HoverSoundGameplay" method="_on_hover"]
+[connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Knight" to="." method="_on_click"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Knight" to="." method="_select" binds= [0]]
 [connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/GridContainer/Bishop" to="HoverSoundGameplay" method="_on_hover"]
+[connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Bishop" to="." method="_on_click"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Bishop" to="." method="_select" binds= [1]]
 [connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/GridContainer/Rook" to="HoverSoundGameplay" method="_on_hover"]
+[connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Rook" to="." method="_on_click"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Rook" to="." method="_select" binds= [2]]
 [connection signal="quit" from="CanvasLayer/UI/PauseScreen" to="." method="_on_pause_screen_quit"]
 [connection signal="restart" from="CanvasLayer/UI/PauseScreen" to="." method="_on_pause_screen_restart"]
 [connection signal="mouse_entered" from="CanvasLayer/UI/PauseScreen/Resume" to="HoverSound" method="_on_hover"]
+[connection signal="pressed" from="CanvasLayer/UI/PauseScreen/Resume" to="." method="_on_click"]
 [connection signal="pressed" from="CanvasLayer/UI/PauseScreen/Resume" to="CanvasLayer/UI/PauseScreen" method="_on_resume_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/UI/PauseScreen/RestartLevel" to="HoverSound" method="_on_hover"]
+[connection signal="pressed" from="CanvasLayer/UI/PauseScreen/RestartLevel" to="." method="_on_click"]
 [connection signal="pressed" from="CanvasLayer/UI/PauseScreen/RestartLevel" to="CanvasLayer/UI/PauseScreen" method="_on_restart_level_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/UI/PauseScreen/Quit" to="HoverSound" method="_on_hover"]
+[connection signal="pressed" from="CanvasLayer/UI/PauseScreen/Quit" to="." method="_on_click"]
 [connection signal="pressed" from="CanvasLayer/UI/PauseScreen/Quit" to="CanvasLayer/UI/PauseScreen" method="_on_quit_pressed"]

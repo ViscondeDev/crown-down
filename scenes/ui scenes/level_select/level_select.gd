@@ -34,3 +34,6 @@ func _on_back_pressed() -> void:
 
 func _on_level_select(level: int) -> void:
 	level_select_action.emit(LevelAction.LEVEL_SELECT, level)
+
+func _on_click():
+	%SfxUiGmtk26Click.play()

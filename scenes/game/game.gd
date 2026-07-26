@@ -115,9 +115,5 @@ func _on_pause_screen_restart() -> void:
 	_load_level(level)
 
 
-func _on_hover():
-	pass
-
-
 func _on_click():
-	pass
+	%SfxUiGmtk26Click.play()
