@@ -38,6 +38,114 @@ texture_margin_top = 5.0
 texture_margin_right = 5.0
 texture_margin_bottom = 5.0
 
+[sub_resource type="Animation" id="Animation_w3w8m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Start:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(283.44, 23)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelSelect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(283, 57)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(283, 93)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(115, 22)]
+}
+
+[sub_resource type="Animation" id="Animation_bh44e"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Start:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.28717518, 1),
+"update": 0,
+"values": [Vector2(445.44, 23), Vector2(283.44, 23)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelSelect:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.28717518, 1),
+"update": 0,
+"values": [Vector2(445, 57), Vector2(283, 57)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.28717518, 1),
+"update": 0,
+"values": [Vector2(445, 93), Vector2(283, 93)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.36602157, 1),
+"update": 0,
+"values": [Vector2(115, -78), Vector2(115, 22)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xcrtt"]
+_data = {
+&"RESET": SubResource("Animation_w3w8m"),
+&"intro": SubResource("Animation_bh44e")
+}
+
 [node name="MainScreen" type="Control" unique_id=182909135]
 layout_mode = 3
 anchors_preset = 15
@@ -67,7 +175,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 70.44
 offset_top = -97.0
-offset_right = 198.44
+offset_right = 198.4404
 offset_bottom = -75.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -89,7 +197,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 70.0
 offset_top = -63.0
-offset_right = 198.0
+offset_right = 198.00046
 offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -111,7 +219,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 70.0
 offset_top = -27.0
-offset_right = 198.0
+offset_right = 198.00046
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -151,6 +259,9 @@ stream = ExtResource("7_bh44e")
 
 [node name="SfxUiGmtk26HoverMenu3" type="AudioStreamPlayer" parent="Node" unique_id=1656010269]
 stream = ExtResource("8_xcrtt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=121168960]
+libraries/ = SubResource("AnimationLibrary_xcrtt")
 
 [connection signal="mouse_entered" from="Start" to="Node" method="_on_hover"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
