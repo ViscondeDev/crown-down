@@ -5,6 +5,7 @@ extends Node2D
 signal state_changed(new_state: State)
 signal update_selection(selection: Selection, state: SelectionState)
 signal crowns_changed(crowns: int)
+signal kill(crowns: int)
 
 enum State {
 	LOADING = 0,

@@ -31,14 +31,11 @@ func move_to_tile(tile: Vector2i) -> void:
 				Board.effects_layer.Effect.THRETENED,
 			)
 
-		move_sound.play()
-
 		sprite.frame_coords.y += 1
 		movement_animation.queue_movement(
 			Board.current_board.map_to_local(current_board_position),
 			Board.current_board.map_to_local(tile),
 		)
-		await movement_animation.movement_finished
 
 		sprite.frame_coords.y -= 1
 		if (
@@ -46,7 +43,17 @@ func move_to_tile(tile: Vector2i) -> void:
 			and Board.current_board.pieces[tile].is_friendly != is_friendly
 		):
 			attack_sound.play()
+		else:
+			move_sound.play()
+
+		await movement_animation.movement_finished
+
+		if (
+			tile in Board.current_board.pieces.keys()
+			and Board.current_board.pieces[tile].is_friendly != is_friendly
+		):
 			Board.current_board.pieces[tile].get_taken()
+			Level.current.kill.emit()
 
 		landing_sound.play()
 		Board.current_board.pieces.erase(current_board_position)

@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://mxrn4l0bnf4k" path="res://scenes/ui scenes/hover_ui_sound.gd" id="8_kp23o"]
 [ext_resource type="AudioStream" uid="uid://triwmh1a53kf" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_2.wav" id="9_kp23o"]
 [ext_resource type="AudioStream" uid="uid://cdfclyhvw8un0" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_3.wav" id="10_5jirj"]
+[ext_resource type="AudioStream" uid="uid://cf7gqbpt51yq6" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_ui_gmtk26_text_beep.wav" id="10_l2dhg"]
 [ext_resource type="AudioStream" uid="uid://bu2sp1v87ktbh" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_gameplay_menu_hover_1.wav" id="12_5v6r0"]
 [ext_resource type="AudioStream" uid="uid://dhp01v51ybvkv" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_choose_bishop_button.wav" id="12_ftsea"]
 [ext_resource type="AudioStream" uid="uid://cpjj4b3op8bw2" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_choose_knight_button.wav" id="13_otnwt"]
@@ -25,6 +26,9 @@
 [ext_resource type="AudioStream" uid="uid://bpu4ktsvjree8" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_Char_Death_1.wav" id="20_3jaai"]
 [ext_resource type="AudioStream" uid="uid://d3vxfl6ux0hj1" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_Char_Death_2.wav" id="21_1iff4"]
 [ext_resource type="AudioStream" uid="uid://dgtnwplgspif5" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_Char_Death_3.wav" id="22_4vuph"]
+[ext_resource type="AudioStream" uid="uid://cysdyo3f1uk7g" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_1.wav" id="26_fty5b"]
+[ext_resource type="AudioStream" uid="uid://cosyyyrps2jih" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_2.wav" id="27_l2dhg"]
+[ext_resource type="AudioStream" uid="uid://bfd3khrfdjm2" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_3.wav" id="28_firvq"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2oa66"]
 lifetime_randomness = 0.1
@@ -265,6 +269,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SfxUiGmtk26TextBeep:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_10c2w"]
 resource_name = "intro"
@@ -331,6 +347,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0, 50, 50, 0, 50, 50, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SfxUiGmtk26TextBeep:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.65, 1.1333333, 3.2400002, 3.7666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pg2xm"]
@@ -600,6 +628,9 @@ texture = SubResource("AtlasTexture_2oa66")
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_pg2xm")
 
+[node name="SfxUiGmtk26TextBeep" type="AudioStreamPlayer" parent="CanvasLayer/UI/SideBar" unique_id=1873333961]
+stream = ExtResource("10_l2dhg")
+
 [node name="PauseScreen" type="ColorRect" parent="CanvasLayer/UI" unique_id=17629139]
 unique_name_in_owner = true
 process_mode = 3
@@ -769,6 +800,20 @@ stream = ExtResource("21_1iff4")
 
 [node name="SfxSfxGmtk26CharCharDeath3" type="AudioStreamPlayer" parent="DeathSound" unique_id=947763234]
 stream = ExtResource("22_4vuph")
+
+[node name="AIDeath" type="Node" parent="." unique_id=491569760]
+unique_name_in_owner = true
+script = ExtResource("19_8b66f")
+metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
+
+[node name="SfxSfxGmtk26CharAiDeath1" type="AudioStreamPlayer" parent="AIDeath" unique_id=1878598016]
+stream = ExtResource("26_fty5b")
+
+[node name="SfxSfxGmtk26CharAiDeath2" type="AudioStreamPlayer" parent="AIDeath" unique_id=1688867451]
+stream = ExtResource("27_l2dhg")
+
+[node name="SfxSfxGmtk26CharAiDeath3" type="AudioStreamPlayer" parent="AIDeath" unique_id=714706040]
+stream = ExtResource("28_firvq")
 
 [connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/Pause" to="HoverSound" method="_on_hover"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/Pause" to="." method="_on_click"]

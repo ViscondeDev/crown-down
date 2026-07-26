@@ -66,6 +66,7 @@ func _load_level(to_load: int):
 		current_instance.state_changed.connect(_update_state)
 		current_instance.update_selection.connect(_update_selection)
 		current_instance.crowns_changed.connect(%Crowns.update)
+		current_instance.kill.connect(_on_ai_death)
 
 		world.add_child(current_instance)
 		Level.current.update_selection.emit(Selection.ROOK, SelectionState.NONE)
@@ -118,3 +119,7 @@ func _on_pause_screen_restart() -> void:
 
 func _on_click():
 	%SfxUiGmtk26Click.play()
+
+
+func _on_ai_death():
+	%AIDeath.play()
