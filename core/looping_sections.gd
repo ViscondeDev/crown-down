@@ -11,23 +11,14 @@ extends Node
 
 func _ready() -> void:
 	loop.finished.connect(_loop_again)
-
-	loop.volume_db = -80
-	loop.play()
-	await get_tree().process_frame
-	loop.stop()
-
-	loop.volume_db = -3
+	intro.finished.connect(_start_loop)
 
 
 func trigger() -> void:
 	if play_transition:
 		AudioManager.current.transition.play()
 		await get_tree().create_timer(1.8).timeout
-	if intro != null:
-		intro.play()
-		await get_tree().create_timer(intro.stream.get_length()).timeout
-		_start_loop()
+	intro.play()
 
 
 func stop() -> void:
