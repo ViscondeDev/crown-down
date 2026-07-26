@@ -45,13 +45,11 @@ func _load_level(to_load: int):
 		current_instance.queue_free()
 		loaded_scene = null
 		await get_tree().create_timer(0.5).timeout
-	
-	if current_instance == null:
-		%Intro.play("intro")
 
 	match to_load:
 		1:
 			loaded_scene = load("res://scenes/levels/level1.tscn")
+			%Intro.play("intro")
 		2:
 			loaded_scene = load("res://scenes/levels/level2.tscn")
 		3:
@@ -60,7 +58,6 @@ func _load_level(to_load: int):
 			loaded_scene = load("res://scenes/levels/level4.tscn")
 		5:
 			loaded_scene = load("res://scenes/levels/level5.tscn")
-
 
 	if loaded_scene == null:
 		level_page.emit()
@@ -117,8 +114,10 @@ func _on_pause_screen_quit() -> void:
 func _on_pause_screen_restart() -> void:
 	_load_level(level)
 
+
 func _on_hover():
 	pass
+
 
 func _on_click():
 	pass

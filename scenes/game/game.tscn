@@ -189,7 +189,7 @@ tracks/0/path = NodePath("%Knight:offset_transform_position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.79999995, 1.6666666),
+"times": PackedFloat32Array(0.79999995, 2.1666665),
 "transitions": PackedFloat32Array(1, 5.4641585),
 "update": 0,
 "values": [Vector2(0, 180), Vector2(0, 0)]
@@ -201,7 +201,7 @@ tracks/1/path = NodePath("%Bishop:offset_transform_position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.0333333, 1.6666666),
+"times": PackedFloat32Array(1.0333333, 2.1666665),
 "transitions": PackedFloat32Array(1, 2.9281716),
 "update": 0,
 "values": [Vector2(0, 180), Vector2(0, 0)]
@@ -213,7 +213,7 @@ tracks/2/path = NodePath("%Rook:offset_transform_position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.3333333, 1.6666666),
+"times": PackedFloat32Array(1.833333, 2.1666665),
 "transitions": PackedFloat32Array(1, 3.1383355),
 "update": 0,
 "values": [Vector2(0, 180), Vector2(0, 0)]
@@ -225,7 +225,7 @@ tracks/3/path = NodePath("Label2:text")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.6666666, 2.7633333),
+"times": PackedFloat32Array(0.6666666, 3.263333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": ["Pick your
@@ -240,7 +240,7 @@ tracks/4/path = NodePath("Label2:visible_characters")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.6666666, 1.4, 2.5766668, 2.766667, 3.1666665, 4.3799996, 4.7),
+"times": PackedFloat32Array(0.6666666, 1.8999997, 3.0766666, 3.2666667, 4.4666667, 5.68, 6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0, 50, 50, 0, 50, 50, 0]
