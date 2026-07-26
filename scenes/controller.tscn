@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b11hepplc4xnf"]
 
 [ext_resource type="Script" uid="uid://yw008lujwxx5" path="res://scenes/controller.gd" id="1_60fnl"]
+[ext_resource type="FontFile" uid="uid://tigroghm0sss" path="res://assets/PixelatedEleganceRegular-ovawB.ttf" id="2_2wvs2"]
 [ext_resource type="Script" uid="uid://00q06gra4uhe" path="res://core/audio_manager.gd" id="2_eq701"]
 [ext_resource type="AudioStream" uid="uid://b8pjexuyc3e4x" path="res://assets/Smash/menu/mus_menu_placeholder_part_1.wav" id="3_swhsy"]
 [ext_resource type="AudioStream" uid="uid://bgkrs637jxbrg" path="res://assets/Smash/menu/mus_menu_placeholder_part_1_rev_tail.wav" id="4_16uoy"]
@@ -27,6 +28,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[node name="LoadingText" type="Label" parent="CanvasLayer" unique_id=40812831]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -138.0
+offset_top = -35.0
+offset_right = -21.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_fonts/font = ExtResource("2_2wvs2")
+text = "Loading . . ."
 
 [node name="AudioManager" type="Node" parent="." unique_id=1983119574 node_paths=PackedStringArray("menu", "gameplay", "transition")]
 process_mode = 3

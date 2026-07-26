@@ -44,12 +44,14 @@ func _load_level(to_load: int):
 	if current_instance != null:
 		current_instance.queue_free()
 		loaded_scene = null
+		await get_tree().create_timer(0.5).timeout
+	
+	if current_instance == null:
+		%Intro.play("intro")
 
 	match to_load:
 		1:
 			loaded_scene = load("res://scenes/levels/level1.tscn")
-			if current_instance = null:
-				%Intro.play("intro")
 		2:
 			loaded_scene = load("res://scenes/levels/level2.tscn")
 		3:
@@ -71,22 +73,6 @@ func _load_level(to_load: int):
 		Level.current.update_selection.emit(Selection.ROOK, SelectionState.NONE)
 
 
-func _reload_scene():
-	if current_instance != null:
-		current_instance.queue_free()
-	await get_tree().create_timer(0.5).timeout
-
-	if loaded_scene == null:
-		level_page.emit()
-	else:
-		current_instance = loaded_scene.instantiate()
-		current_instance.state_changed.connect(_update_state)
-		current_instance.update_selection.connect(_update_selection)
-
-		world.add_child(current_instance)
-		Level.current.update_selection.emit(Selection.ROOK, SelectionState.NONE)
-
-
 func _update_state(new_state: GameState):
 	match new_state:
 		GameState.WON:
@@ -94,7 +80,7 @@ func _update_state(new_state: GameState):
 			update_level.emit(level + 1)
 		GameState.LOST:
 			%DeathSound.play()
-			_reload_scene()
+			_load_level(level)
 
 
 func _update_selection(_selection: Selection, state: SelectionState):
@@ -129,7 +115,7 @@ func _on_pause_screen_quit() -> void:
 
 
 func _on_pause_screen_restart() -> void:
-	_reload_scene()
+	_load_level(level)
 
 func _on_hover():
 	pass
