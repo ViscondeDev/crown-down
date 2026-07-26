@@ -6,6 +6,7 @@ extends Node
 @export var intro_tail: AudioStreamPlayer
 @export var loop: AudioStreamPlayer
 @export var loop_tail: AudioStreamPlayer
+@export var play_transition: bool
 
 
 func _ready() -> void:
@@ -14,7 +15,9 @@ func _ready() -> void:
 
 
 func trigger() -> void:
-	AudioManager.current.transition.play()
+	if play_transition:
+		AudioManager.current.transition.play()
+		await get_tree().create_timer(1.8).timeout
 	if intro != null:
 		intro.play()
 

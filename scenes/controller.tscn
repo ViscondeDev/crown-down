@@ -85,6 +85,7 @@ intro = NodePath("Intro")
 intro_tail = NodePath("IntroTail")
 loop = NodePath("Loop")
 loop_tail = NodePath("LoopTail")
+play_transition = true
 
 [node name="Intro" type="AudioStreamPlayer" parent="AudioManager/GamePlay" unique_id=451310578]
 stream = ExtResource("9_yq5jm")

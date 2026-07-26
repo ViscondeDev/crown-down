@@ -290,4 +290,5 @@ stream = ExtResource("11_evxlk")
 [connection signal="pressed" from="GridContainer/Level7" to="." method="_on_level_select" binds= [1]]
 [connection signal="mouse_entered" from="GridContainer/Level8" to="HoverSound" method="_on_hover"]
 [connection signal="pressed" from="GridContainer/Level8" to="." method="_on_level_select" binds= [1]]
+[connection signal="mouse_entered" from="Back" to="HoverSound" method="_on_hover"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

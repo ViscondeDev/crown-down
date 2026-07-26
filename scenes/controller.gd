@@ -10,14 +10,13 @@ var current_instance: Node = null
 @onready var loading_text = %LoadingText
 
 func _ready() -> void:
+	AudioManager.current.menu.trigger()
 	_transition_scene(SceneType.MAIN)
 
 	if not FileAccess.file_exists(SAVE_FILE):
 		var file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
 		file.store_string('{"progress": 1, "playthrough": 1}')
 		file.close()
-	AudioManager.current.menu.trigger()
-	print("instaciated")
 
 
 enum MainSceneAction {
@@ -28,9 +27,9 @@ enum MainSceneAction {
 func _main_scene_action(type: MainSceneAction):
 	match type:
 		MainSceneAction.START:
-			_transition_scene(SceneType.GAME, 1)
 			AudioManager.current.menu.stop()
 			AudioManager.current.gameplay.trigger()
+			_transition_scene(SceneType.GAME, 1)
 		MainSceneAction.LEVEL_SELECT:
 			_transition_scene(SceneType.LEVEL_SELECT)
 		MainSceneAction.CREDITS:
@@ -46,9 +45,9 @@ func _level_select_action(type: LevelActionAction, extra):
 		LevelActionAction.BACK:
 			_transition_scene(SceneType.MAIN)
 		LevelActionAction.LEVEL_SELECT:
-			_transition_scene(SceneType.GAME, extra)
 			AudioManager.current.menu.stop()
 			AudioManager.current.gameplay.trigger()
+			_transition_scene(SceneType.GAME, extra)
 
 
 enum SceneType {

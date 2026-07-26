@@ -22,6 +22,8 @@ func _ready() -> void:
 		
 	for i in range(1, len(level_buttons) + 1):
 		level_buttons[i - 1].disabled = i > progress
+		if i > progress:
+			level_buttons[i - 1].mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 enum LevelAction {
 	BACK = 0,
