@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://tigroghm0sss" path="res://assets/PixelatedEleganceRegular-ovawB.ttf" id="1_1cam0"]
 [ext_resource type="Script" uid="uid://dsb1y6l0hltsj" path="res://scenes/ui scenes/level_select/level_select.gd" id="1_ixgle"]
+[ext_resource type="Texture2D" uid="uid://mjm880ry6b3v" path="res://assets/banner.jpeg" id="2_0o3s3"]
 [ext_resource type="Texture2D" uid="uid://fhovsch1any4" path="res://assets/Card-layout.png" id="2_ij0sh"]
 [ext_resource type="Texture2D" uid="uid://diabn1shat6bd" path="res://assets/Card-layout-hover.png" id="3_ixgle"]
 [ext_resource type="Texture2D" uid="uid://byb5y3hofo88b" path="res://assets/Back.png" id="4_ij0sh"]
@@ -92,6 +93,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ixgle")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1633926678]
+modulate = Color(0.56028485, 0.56028485, 0.56028485, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0o3s3")
+expand_mode = 2
 
 [node name="Label" type="Label" parent="." unique_id=37582330]
 layout_mode = 1

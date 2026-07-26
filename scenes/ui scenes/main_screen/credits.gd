@@ -24,6 +24,7 @@ func set_alpha(alpha: float):
 
 
 func _on_back_pressed() -> void:
+	%SfxUiGmtk26BackDeclineButton.play()
 	var tween = create_tween()
 	tween.tween_method(credit_screen.set_alpha, 1.0, 0.0, 0.1)
 	tween.tween_method(_cover_fade, 1.0, 0.0, 0.1)
