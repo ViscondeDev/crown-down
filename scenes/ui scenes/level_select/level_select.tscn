@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://triwmh1a53kf" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_2.wav" id="9_0o3s3"]
 [ext_resource type="AudioStream" uid="uid://cdfclyhvw8un0" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_3.wav" id="10_oq3h7"]
 [ext_resource type="AudioStream" uid="uid://dsx3loogw61h5" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_click.wav" id="11_evxlk"]
+[ext_resource type="AudioStream" uid="uid://by5xv41tvbp0l" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_back_decline_button.wav" id="12_336ro"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ixgle"]
 content_margin_left = 20.0
@@ -273,6 +274,10 @@ stream = ExtResource("10_oq3h7")
 [node name="SfxUiGmtk26Click" type="AudioStreamPlayer" parent="." unique_id=353640938]
 unique_name_in_owner = true
 stream = ExtResource("11_evxlk")
+
+[node name="SfxUiGmtk26BackDeclineButton" type="AudioStreamPlayer" parent="." unique_id=897114166]
+unique_name_in_owner = true
+stream = ExtResource("12_336ro")
 
 [connection signal="mouse_entered" from="GridContainer/Level1" to="HoverSound" method="_on_hover"]
 [connection signal="pressed" from="GridContainer/Level1" to="." method="_on_level_select" binds= [1]]
