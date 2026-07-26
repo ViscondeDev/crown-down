@@ -2,7 +2,7 @@ extends Node
 
 const SAVE_FILE = "user://save_data.json"
 
-var current_scene : PackedScene = null
+var current_scene: PackedScene = null
 var current_instance: Node = null
 
 @onready var scene = $Scene
@@ -26,8 +26,10 @@ func _ready() -> void:
 enum MainSceneAction {
 	START = 0,
 	LEVEL_SELECT = 1,
-	CREDITS = 2
+	CREDITS = 2,
 }
+
+
 func _main_scene_action(type: MainSceneAction):
 	match type:
 		MainSceneAction.START:
@@ -43,7 +45,7 @@ func _main_scene_action(type: MainSceneAction):
 func _open_credits():
 	screen_cover.show()
 	credit_screen.show()
-	
+
 	var tween = create_tween()
 	tween.tween_method(_cover_fade, 0.0, 1.0, 0.1)
 	tween.tween_method(credit_screen.set_alpha, 0.0, 1.0, 0.1)
@@ -53,6 +55,8 @@ enum LevelActionAction {
 	BACK = 0,
 	LEVEL_SELECT = 1,
 }
+
+
 func _level_select_action(type: LevelActionAction, extra):
 	match type:
 		LevelActionAction.BACK:
@@ -68,10 +72,12 @@ enum SceneType {
 	LEVEL_SELECT,
 	GAME,
 }
+
+
 func _transition_scene(to: SceneType, level: int = 0):
 	screen_cover.show()
 	loading_text.show()
-	
+
 	var tween = create_tween()
 	tween.tween_method(_cover_fade, 0.0, 1.0, 0.05)
 	tween.tween_method(_text_fade, 0.0, 1.0, 0.15)
@@ -99,7 +105,9 @@ func _switch_scene(to: SceneType, level: int):
 			current_instance.level = level
 			current_instance.update_level.connect(_update_level)
 			current_instance.quit.connect(_transition_scene.bind(SceneType.MAIN))
-			current_instance.level_page.connect(_transition_scene.bind(SceneType.LEVEL_SELECT))
+			current_instance.level_page.connect(
+				_transition_scene.bind(SceneType.LEVEL_SELECT)
+			)
 
 	scene.add_child(current_instance)
 	var tween = create_tween()
