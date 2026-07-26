@@ -14,7 +14,7 @@ config/name="gmtk_2026"
 run/main_scene="uid://b11hepplc4xnf"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/image="uid://cvwmjdrixagxm"
-config/icon="res://icon.svg"
+config/icon="uid://boe1tt5834bja"
 
 [debug]
 
@@ -24,7 +24,6 @@ gdscript/warnings/static_called_on_instance=0
 
 window/size/viewport_width=426
 window/size/viewport_height=240
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [editor_plugins]

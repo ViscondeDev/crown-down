@@ -16,22 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://cosyyyrps2jih" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_2.wav" id="13_7sbkb"]
 [ext_resource type="AudioStream" uid="uid://bfd3khrfdjm2" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_3.wav" id="14_602ct"]
 [ext_resource type="AudioStream" uid="uid://cm1xcokxjo1lk" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_gmtk26_char_AI_Attack.wav" id="16_cn2d8"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uwoax"]
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(8, 1, 1)
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-angle_min = -156.9
-angle_max = 221.50002
-direction = Vector3(0, -1, 0)
-spread = 24.545
-initial_velocity_min = 59.78
-initial_velocity_max = 83.82
-gravity = Vector3(0, 120, 0)
-scale_max = 1.5
-hue_variation_min = -0.13000003
-hue_variation_max = 0.12999998
+[ext_resource type="Material" uid="uid://b4dwnbar64qsh" path="res://resources/damage_shader.tres" id="17_wqjuk"]
 
 [node name="Piece" type="Node2D" unique_id=1987036587]
 script = ExtResource("1_huli3")
@@ -109,4 +94,4 @@ emitting = false
 amount = 40
 lifetime = 0.5
 one_shot = true
-process_material = SubResource("ParticleProcessMaterial_uwoax")
+process_material = ExtResource("17_wqjuk")

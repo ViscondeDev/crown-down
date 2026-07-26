@@ -91,6 +91,7 @@ text = "Loading . . ."
 
 [node name="Credits" type="CanvasLayer" parent="CanvasLayer" unique_id=2012213303]
 unique_name_in_owner = true
+visible = false
 script = ExtResource("3_yq5jm")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Credits" unique_id=1954301501]

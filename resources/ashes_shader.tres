@@ -1,0 +1,13 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://cw6ysfd176bbq"]
+
+[resource]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -31.49, 0)
+emission_shape = 3
+emission_box_extents = Vector3(99.82, 1, 1)
+gravity = Vector3(0, 98, 0)
+scale_max = 2.5
+color = Color(0.92941177, 0.9098039, 0.80784315, 1)
+turbulence_enabled = true
+turbulence_noise_strength = 0.12

@@ -73,6 +73,5 @@ func attempt_deffend() -> bool:
 			if cell in piece.possible_moves:
 				piece.move_to_tile(cell)
 				return true
-	print("just did whatever")
 	reachable_tiles[best_cells[0]][0].move_to_tile(best_cells[0])
 	return true

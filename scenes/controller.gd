@@ -12,6 +12,8 @@ var current_instance: Node = null
 
 
 func _ready() -> void:
+	var _mat := preload("res://resources/damage_shader.tres")
+	var _mat2 := preload("res://resources/ashes_shader.tres")
 	AudioManager.current.menu.trigger()
 	_transition_scene(SceneType.MAIN)
 

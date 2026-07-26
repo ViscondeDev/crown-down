@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c7b8dcmhm1rx1" path="res://scenes/game/game.gd" id="1_sul5r"]
 [ext_resource type="FontFile" uid="uid://tigroghm0sss" path="res://assets/PixelatedEleganceRegular-ovawB.ttf" id="2_7h61r"]
+[ext_resource type="Material" uid="uid://cw6ysfd176bbq" path="res://resources/ashes_shader.tres" id="2_firvq"]
 [ext_resource type="Texture2D" uid="uid://laimqbqy6sd7" path="res://assets/tower.png" id="2_uyinl"]
 [ext_resource type="Texture2D" uid="uid://diabn1shat6bd" path="res://assets/Card-layout-hover.png" id="3_kelw5"]
 [ext_resource type="Texture2D" uid="uid://1t35x7umk145" path="res://assets/Pause.png" id="4_lfrn8"]
@@ -29,18 +30,6 @@
 [ext_resource type="AudioStream" uid="uid://cysdyo3f1uk7g" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_1.wav" id="26_fty5b"]
 [ext_resource type="AudioStream" uid="uid://cosyyyrps2jih" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_2.wav" id="27_l2dhg"]
 [ext_resource type="AudioStream" uid="uid://bfd3khrfdjm2" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_3.wav" id="28_firvq"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2oa66"]
-lifetime_randomness = 0.1
-particle_flag_disable_z = true
-emission_shape_offset = Vector3(0, -31.49, 0)
-emission_shape = 3
-emission_box_extents = Vector3(99.82, 1, 1)
-gravity = Vector3(0, 98, 0)
-scale_max = 2.5
-color = Color(0.92941177, 0.9098039, 0.80784315, 1)
-turbulence_enabled = true
-turbulence_noise_strength = 0.12
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5i0tg"]
 load_path = "res://.godot/imported/Card-layout.png-97ced0726fd48f03e63df396eacfef7d.ctex"
@@ -477,7 +466,7 @@ position = Vector2(185, 53.97)
 scale = Vector2(1.85, 1.85)
 amount = 15
 lifetime = 10.0
-process_material = SubResource("ParticleProcessMaterial_2oa66")
+process_material = ExtResource("2_firvq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1403835328]
 
