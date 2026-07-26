@@ -39,6 +39,7 @@ var current_state: State = State.LOADING:
 
 
 func _ready() -> void:
+	y_sort_enabled = true
 	current = self
 	state_changed.connect(pawn.watch_game_state)
 	state_changed.connect(enemie_ai.watch_state)

@@ -48,16 +48,22 @@ func _load_level(to_load: int):
 
 	match to_load:
 		1:
-			loaded_scene = load("res://scenes/levels/level1.tscn")
+			loaded_scene = load("uid://c0b31uun0prgp")
 			%Intro.play("intro")
 		2:
-			loaded_scene = load("res://scenes/levels/level2.tscn")
+			loaded_scene = load("uid://cd7127kqu8704")
 		3:
-			loaded_scene = load("res://scenes/levels/level3.tscn")
+			loaded_scene = load("uid://b8f32pph3xwk5")
 		4:
-			loaded_scene = load("res://scenes/levels/level4.tscn")
+			loaded_scene = load("uid://dcb5hm4vlwxrt")
 		5:
-			loaded_scene = load("res://scenes/levels/level5.tscn")
+			loaded_scene = load("uid://gp4a7dg5qnbj")
+		6:
+			loaded_scene = load("uid://cxuu682y8u0u5")
+		7:
+			loaded_scene = load("uid://bhpmy0u7c80t7")
+		8:
+			loaded_scene = load("uid://ct16xoac3u10i")
 
 	if loaded_scene == null:
 		level_page.emit()
