@@ -4,7 +4,10 @@
 [ext_resource type="FontFile" uid="uid://tigroghm0sss" path="res://assets/PixelatedEleganceRegular-ovawB.ttf" id="2_2wvs2"]
 [ext_resource type="Script" uid="uid://00q06gra4uhe" path="res://core/audio_manager.gd" id="2_eq701"]
 [ext_resource type="AudioStream" uid="uid://b8pjexuyc3e4x" path="res://assets/Smash/menu/mus_menu_placeholder_part_1.wav" id="3_swhsy"]
+[ext_resource type="Script" uid="uid://bn44yl6o2o0a" path="res://scenes/ui scenes/main_screen/credits.gd" id="3_yq5jm"]
 [ext_resource type="AudioStream" uid="uid://bgkrs637jxbrg" path="res://assets/Smash/menu/mus_menu_placeholder_part_1_rev_tail.wav" id="4_16uoy"]
+[ext_resource type="Texture2D" uid="uid://diabn1shat6bd" path="res://assets/Card-layout-hover.png" id="4_dxac8"]
+[ext_resource type="Texture2D" uid="uid://byb5y3hofo88b" path="res://assets/Back.png" id="5_iibji"]
 [ext_resource type="AudioStream" uid="uid://cpunp4nbiso7v" path="res://assets/Smash/menu/mus_menu_placeholder_Lp.wav" id="5_kbhpp"]
 [ext_resource type="AudioStream" uid="uid://d04i01pe3qjov" path="res://assets/Smash/menu/mus_menu_placeholder_Lp_Rev_Tail.wav" id="6_742vw"]
 [ext_resource type="Script" uid="uid://b31r48xw1kk6h" path="res://core/looping_sections.gd" id="7_16uoy"]
@@ -17,6 +20,33 @@
 [ext_resource type="AudioStream" uid="uid://bytqxn50gjgyt" path="res://assets/Smash/Music Batch _v2/INTRO/mus_gmtk26_gameplay_80bpm_intro_perc_rev_tail_Master.wav" id="14_ojcgh"]
 [ext_resource type="AudioStream" uid="uid://dmckehyawlfpm" path="res://assets/Smash/Music Batch _v2/LOOP/mus_gmtk26_gameplay_80bpm_mainLoop_percLayer_Master.wav" id="15_x68s0"]
 [ext_resource type="AudioStream" uid="uid://bt72usok6ahaj" path="res://assets/Smash/Music Batch _v2/LOOP/mus_gmtk26_gameplay_80bpm_mainLoop_percLayer_revtail_Master.wav" id="16_jjaxt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ixgle"]
+load_path = "res://.godot/imported/Card-layout.png-97ced0726fd48f03e63df396eacfef7d.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4g73p"]
+texture = SubResource("CompressedTexture2D_ixgle")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fv3cw"]
+load_path = "res://.godot/imported/Card-layout.png-97ced0726fd48f03e63df396eacfef7d.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_28u5l"]
+texture = SubResource("CompressedTexture2D_fv3cw")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ojcgh"]
+texture = ExtResource("4_dxac8")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
 
 [node name="Controller" type="Node" unique_id=1204514521]
 script = ExtResource("1_60fnl")
@@ -33,7 +63,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0)
+color = Color(0.078431375, 0.05882353, 0.08235294, 0)
 
 [node name="LoadingText" type="Label" parent="CanvasLayer" unique_id=40812831]
 unique_name_in_owner = true
@@ -52,6 +82,108 @@ grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 0)
 theme_override_fonts/font = ExtResource("2_2wvs2")
 text = "Loading . . ."
+
+[node name="Credits" type="CanvasLayer" parent="CanvasLayer" unique_id=2012213303]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("3_yq5jm")
+
+[node name="CreditTitle" type="Label" parent="CanvasLayer/Credits" unique_id=1543714455]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.5
+offset_top = 48.62
+offset_right = 66.5
+offset_bottom = 72.62
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
+theme_override_fonts/font = ExtResource("2_2wvs2")
+theme_override_font_sizes/font_size = 34
+text = "Credits"
+
+[node name="Title1" type="Label" parent="CanvasLayer/Credits" unique_id=1814423414]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -7.5000076
+offset_right = 45.0
+offset_bottom = 6.4999924
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
+theme_override_fonts/font = ExtResource("2_2wvs2")
+theme_override_font_sizes/font_size = 15
+text = "		Visconde"
+horizontal_alignment = 1
+
+[node name="Title2" type="Label" parent="CanvasLayer/Credits" unique_id=1841334011]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = 16.5
+offset_right = 36.0
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
+theme_override_fonts/font = ExtResource("2_2wvs2")
+theme_override_font_sizes/font_size = 15
+text = "Thi Romanelli"
+horizontal_alignment = 1
+
+[node name="Title3" type="Label" parent="CanvasLayer/Credits" unique_id=1619895106]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = 43.47
+offset_right = 114.0
+offset_bottom = 57.47
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
+theme_override_fonts/font = ExtResource("2_2wvs2")
+theme_override_font_sizes/font_size = 15
+text = "GhoulKingR"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="CanvasLayer/Credits" unique_id=1004522327]
+texture_filter = 1
+offset_left = 34.0
+offset_top = 20.0
+offset_right = 57.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
+theme_override_fonts/font = ExtResource("2_2wvs2")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxTexture_4g73p")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_28u5l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ojcgh")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Credits/Back" unique_id=72736510]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.9999847
+offset_top = -7.0
+offset_right = 43.000015
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("5_iibji")
 
 [node name="AudioManager" type="Node" parent="." unique_id=1983119574 node_paths=PackedStringArray("menu", "gameplay", "transition")]
 process_mode = 3
@@ -128,3 +260,5 @@ stream = ExtResource("16_jjaxt")
 
 [node name="TransitionGameplayMenu" type="AudioStreamPlayer" parent="AudioManager" unique_id=1069515181]
 stream = ExtResource("10_b2sql")
+
+[connection signal="pressed" from="CanvasLayer/Credits/Back" to="CanvasLayer/Credits" method="_on_back_pressed"]
