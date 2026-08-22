@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://yaapxtil2i1k"]
+
+[ext_resource type="Texture2D" uid="uid://mjm880ry6b3v" path="res://assets/banner.jpeg" id="2_hca5g"]
+[ext_resource type="FontFile" uid="uid://tigroghm0sss" path="res://assets/PixelatedEleganceRegular-ovawB.ttf" id="3_jfjb0"]
+[ext_resource type="Texture2D" uid="uid://diabn1shat6bd" path="res://assets/Card-layout-hover.png" id="4_es245"]
+[ext_resource type="Texture2D" uid="uid://byb5y3hofo88b" path="res://assets/Back.png" id="5_s2kgk"]
+[ext_resource type="Script" uid="uid://mxrn4l0bnf4k" path="res://scenes/ui scenes/hover_ui_sound.gd" id="6_ry7j3"]
+[ext_resource type="AudioStream" uid="uid://dimcf8er32os" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_1.wav" id="7_xwc2w"]
+[ext_resource type="AudioStream" uid="uid://triwmh1a53kf" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_2.wav" id="8_2ibfb"]
+[ext_resource type="AudioStream" uid="uid://cdfclyhvw8un0" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_3.wav" id="9_0wylk"]
+[ext_resource type="AudioStream" uid="uid://by5xv41tvbp0l" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_back_decline_button.wav" id="10_jyw2e"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ixgle"]
+load_path = "res://.godot/imported/Card-layout.png-97ced0726fd48f03e63df396eacfef7d.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4g73p"]
+texture = SubResource("CompressedTexture2D_ixgle")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fv3cw"]
+load_path = "res://.godot/imported/Card-layout.png-97ced0726fd48f03e63df396eacfef7d.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_28u5l"]
+texture = SubResource("CompressedTexture2D_fv3cw")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ojcgh"]
+texture = ExtResource("4_es245")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[node name="Credits" type="CanvasLayer" unique_id=1261453320]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1395593693]
+modulate = Color(0.56028485, 0.56028485, 0.56028485, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hca5g")
+expand_mode = 2
+
+[node name="CreditTitle" type="Label" parent="." unique_id=13861617]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.5
+offset_top = 48.62
+offset_right = 66.5
+offset_bottom = 72.62
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
+theme_override_fonts/font = ExtResource("3_jfjb0")
+theme_override_font_sizes/font_size = 34
+text = "Credits"
+
+[node name="Names" type="Label" parent="." unique_id=424666451]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.5
+offset_top = -12.0
+offset_right = 142.5
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
+theme_override_fonts/font = ExtResource("3_jfjb0")
+theme_override_font_sizes/font_size = 15
+text = "Visconde
+GhoulKingR
+Thi Romanelli
+Sanny"
+
+[node name="Does" type="Label" parent="." unique_id=1587140675]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.5
+offset_top = -12.0
+offset_right = 142.5
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
+theme_override_fonts/font = ExtResource("3_jfjb0")
+theme_override_font_sizes/font_size = 15
+text = "Gameplay & Code
+UI & Code
+Music & SFX
+Illustration"
+horizontal_alignment = 2
+
+[node name="Back" type="Button" parent="." unique_id=527615781]
+texture_filter = 1
+offset_left = 34.0
+offset_top = 20.0
+offset_right = 57.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
+theme_override_fonts/font = ExtResource("3_jfjb0")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxTexture_4g73p")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_28u5l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ojcgh")
+
+[node name="TextureRect" type="TextureRect" parent="Back" unique_id=473517341]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.9999847
+offset_top = -7.0
+offset_right = 43.000015
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("5_s2kgk")
+
+[node name="HoverSound" type="Node" parent="." unique_id=1556103813]
+unique_name_in_owner = true
+script = ExtResource("6_ry7j3")
+
+[node name="SfxUiGmtk26HoverMenu1" type="AudioStreamPlayer" parent="HoverSound" unique_id=1857125333]
+stream = ExtResource("7_xwc2w")
+
+[node name="SfxUiGmtk26HoverMenu2" type="AudioStreamPlayer" parent="HoverSound" unique_id=1085820333]
+stream = ExtResource("8_2ibfb")
+
+[node name="SfxUiGmtk26HoverMenu3" type="AudioStreamPlayer" parent="HoverSound" unique_id=1233931829]
+stream = ExtResource("9_0wylk")
+
+[node name="SfxUiGmtk26BackDeclineButton" type="AudioStreamPlayer" parent="." unique_id=670208046]
+unique_name_in_owner = true
+stream = ExtResource("10_jyw2e")
+
+[connection signal="mouse_entered" from="Back" to="HoverSound" method="_on_hover"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

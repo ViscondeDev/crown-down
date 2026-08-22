@@ -1,5 +1,22 @@
 extends Node
 
+enum MainSceneAction {
+	START = 0,
+	LEVEL_SELECT = 1,
+	CREDITS = 2,
+}
+
+enum LevelActionAction {
+	BACK = 0,
+	LEVEL_SELECT = 1,
+}
+
+enum SceneType {
+	MAIN,
+	LEVEL_SELECT,
+	GAME,
+}
+
 const SAVE_FILE = "user://save_data.json"
 
 var current_scene: PackedScene = null
@@ -23,25 +40,6 @@ func _ready() -> void:
 		file.close()
 
 
-enum MainSceneAction {
-	START = 0,
-	LEVEL_SELECT = 1,
-	CREDITS = 2,
-}
-
-
-func _main_scene_action(type: MainSceneAction):
-	match type:
-		MainSceneAction.START:
-			AudioManager.current.menu.stop()
-			AudioManager.current.gameplay.trigger()
-			_transition_scene(SceneType.GAME, 1)
-		MainSceneAction.LEVEL_SELECT:
-			_transition_scene(SceneType.LEVEL_SELECT)
-		MainSceneAction.CREDITS:
-			_open_credits()
-
-
 func _open_credits():
 	screen_cover.show()
 	credit_screen.show()
@@ -49,12 +47,6 @@ func _open_credits():
 	var tween = create_tween()
 	tween.tween_method(_cover_fade, 0.0, 1.0, 0.1)
 	tween.tween_method(credit_screen.set_alpha, 0.0, 1.0, 0.1)
-
-
-enum LevelActionAction {
-	BACK = 0,
-	LEVEL_SELECT = 1,
-}
 
 
 func _level_select_action(type: LevelActionAction, extra):
@@ -65,13 +57,6 @@ func _level_select_action(type: LevelActionAction, extra):
 			AudioManager.current.menu.stop()
 			AudioManager.current.gameplay.trigger()
 			_transition_scene(SceneType.GAME, extra)
-
-
-enum SceneType {
-	MAIN,
-	LEVEL_SELECT,
-	GAME,
-}
 
 
 func _transition_scene(to: SceneType, level: int = 0):
@@ -89,11 +74,6 @@ func _transition_scene(to: SceneType, level: int = 0):
 
 func _switch_scene(to: SceneType, level: int):
 	match to:
-		SceneType.MAIN:
-			current_scene = load("res://scenes/ui scenes/main_screen/MainScreen.tscn")
-			current_instance = current_scene.instantiate()
-			current_instance.main_screen_action.connect(_main_scene_action)
-
 		SceneType.LEVEL_SELECT:
 			current_scene = load("res://scenes/ui scenes/level_select/level_select.tscn")
 			current_instance = current_scene.instantiate()

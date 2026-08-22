@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://b3s5iwhv71qr6"]
-
-[ext_resource type="PackedScene" uid="uid://c0b31uun0prgp" path="res://scenes/levels/bishop_intro.tscn" id="1_j5px3"]
-
-[node name="Root" type="Node2D" unique_id=302431742]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=73636997]
-
-[node name="Level" parent="." unique_id=1820218999 instance=ExtResource("1_j5px3")]
