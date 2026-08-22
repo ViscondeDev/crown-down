@@ -880,8 +880,8 @@ stream = ExtResource("27_l2dhg")
 stream = ExtResource("28_firvq")
 
 [connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/Pause" to="HoverSound" method="_on_hover"]
-[connection signal="pressed" from="CanvasLayer/UI/SideBar/Pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/Pause" to="." method="_on_click"]
+[connection signal="pressed" from="CanvasLayer/UI/SideBar/Pause" to="." method="_on_pause_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/GridContainer/Rook" to="HoverSoundGameplay" method="_on_hover"]
 [connection signal="pressed" from="CanvasLayer/UI/SideBar/GridContainer/Rook" to="." method="_select" binds= [2]]
 [connection signal="mouse_entered" from="CanvasLayer/UI/SideBar/GridContainer/Bishop" to="HoverSoundGameplay" method="_on_hover"]

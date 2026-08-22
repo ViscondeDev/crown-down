@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://hh3bqibkmsbh"]
+
+[ext_resource type="Script" uid="uid://caom5mrx74lbj" path="res://scenes/ui scenes/loading_screen/loading_screen.gd" id="1_vdy3r"]
+[ext_resource type="FontFile" uid="uid://tigroghm0sss" path="res://assets/PixelatedEleganceRegular-ovawB.ttf" id="1_xdwpi"]
+
+[sub_resource type="Animation" id="Animation_d3ec8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingText:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScreenCover:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ql3k5"]
+resource_name = "fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingText:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScreenCover:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0gp1g"]
+_data = {
+&"RESET": SubResource("Animation_d3ec8"),
+&"fade": SubResource("Animation_ql3k5")
+}
+
+[node name="LoadingScreen" type="CanvasLayer" unique_id=997928548 node_paths=PackedStringArray("animation")]
+layer = 10
+script = ExtResource("1_vdy3r")
+animation = NodePath("AnimationPlayer")
+
+[node name="ScreenCover" type="ColorRect" parent="." unique_id=103664584]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.05882353, 0.08235294, 1)
+
+[node name="LoadingText" type="Label" parent="." unique_id=858491309]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -395.0
+offset_top = -47.0
+offset_right = -278.0
+offset_bottom = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_xdwpi")
+text = "Loading . . ."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1809942259]
+libraries/ = SubResource("AnimationLibrary_0gp1g")
