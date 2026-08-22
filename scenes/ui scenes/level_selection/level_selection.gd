@@ -1,9 +1,5 @@
 extends Control
 
-const SAVE_FILE = "user://save_data.json"
-
-@export var current: int = 0
-
 
 func _ready() -> void:
 	var buttons = %LevelList.get_children()
@@ -13,9 +9,9 @@ func _ready() -> void:
 
 func _on_back_pressed() -> void:
 	%SfxUiGmtk26BackDeclineButton.play()
-	Game.current.load_scene(Game.SCENE_PATHS.menu.main)
+	Game.current.load_scene(Game.SCENE_PATHS.menus.main)
 
 
 func _on_level_select(level: int) -> void:
 	%SfxUiGmtk26Click.play()
-	Game.current.load_scene(Game.SCENE_PATHS.levels.level)
+	Game.current.load_scene(Game.SCENE_PATHS.levels[level])

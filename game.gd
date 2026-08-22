@@ -2,7 +2,7 @@
 class_name Game
 extends Node
 
-signal progress_changed
+signal progress_changed(value: float)
 signal scene_loaded
 
 enum State {
@@ -12,8 +12,8 @@ enum State {
 
 const SCENE_PATHS = {
 	"menus": {
-		"main": "uid://dtw6jyvjmxwop",
-		"level_selection": "uid://dsb1y6l0hltsj",
+		"main": "uid://cueqp5kvayvsf",
+		"level_selection": "uid://bvrc1ordodcvm",
 		"credits": "uid://yaapxtil2i1k",
 	},
 	"levels": { 1: "uid://c0b31uun0prgp", 2: "uid://cd7127kqu8704", 3: "uid://b8f32pph3xwk5" },
@@ -46,6 +46,7 @@ func _process(_delta: float) -> void:
 func load_scene(scene_path: String) -> void:
 	var loading_screen: LoadingScreen = _loading_screen.instantiate()
 	scene_loaded.connect(loading_screen.fade_out)
+	progress_changed.connect(loading_screen.update_progress)
 	add_child(loading_screen)
 	await loading_screen.screen_ready
 

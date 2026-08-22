@@ -10,9 +10,9 @@ func _on_start_pressed() -> void:
 
 func _on_level_select_pressed() -> void:
 	%SfxUiGmtk26Click.play()
-	Game.current.load_scene(Game.SCENE_PATHS.menu.level_select)
+	Game.current.load_scene(Game.SCENE_PATHS.menus.level_selection)
 
 
 func _on_credits_pressed() -> void:
 	%SfxUiGmtk26Click.play()
-	Game.current.load_scene(Game.SCENE_PATHS.menu.credits)
+	Game.current.load_scene(Game.SCENE_PATHS.menus.credits)

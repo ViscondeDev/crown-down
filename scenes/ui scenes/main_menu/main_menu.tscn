@@ -1,39 +1,39 @@
 [gd_scene format=3 uid="uid://cueqp5kvayvsf"]
 
-[ext_resource type="Script" uid="uid://dtw6jyvjmxwop" path="res://scenes/ui scenes/main_screen/main_menu.gd" id="1_ystjd"]
-[ext_resource type="Texture2D" uid="uid://mjm880ry6b3v" path="res://assets/banner.jpeg" id="2_b4npg"]
-[ext_resource type="FontFile" uid="uid://tigroghm0sss" path="res://assets/PixelatedEleganceRegular-ovawB.ttf" id="3_a76v4"]
-[ext_resource type="Texture2D" uid="uid://fhovsch1any4" path="res://assets/Card-layout.png" id="4_g8x4e"]
-[ext_resource type="Texture2D" uid="uid://diabn1shat6bd" path="res://assets/Card-layout-hover.png" id="5_g6t1g"]
-[ext_resource type="Script" uid="uid://mxrn4l0bnf4k" path="res://scenes/ui scenes/hover_ui_sound.gd" id="6_vu4dl"]
-[ext_resource type="AudioStream" uid="uid://dimcf8er32os" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_1.wav" id="7_rpjrr"]
-[ext_resource type="AudioStream" uid="uid://triwmh1a53kf" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_2.wav" id="8_etfng"]
-[ext_resource type="AudioStream" uid="uid://cdfclyhvw8un0" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_3.wav" id="9_0lw5q"]
-[ext_resource type="AudioStream" uid="uid://dsx3loogw61h5" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_click.wav" id="10_nnbdy"]
+[ext_resource type="Script" uid="uid://dtw6jyvjmxwop" path="res://scenes/ui scenes/main_menu/main_menu.gd" id="1_puc7a"]
+[ext_resource type="Texture2D" uid="uid://mjm880ry6b3v" path="res://assets/banner.jpeg" id="2_phif0"]
+[ext_resource type="FontFile" uid="uid://tigroghm0sss" path="res://assets/PixelatedEleganceRegular-ovawB.ttf" id="3_4vh3d"]
+[ext_resource type="Texture2D" uid="uid://fhovsch1any4" path="res://assets/Card-layout.png" id="4_e1ucv"]
+[ext_resource type="Texture2D" uid="uid://diabn1shat6bd" path="res://assets/Card-layout-hover.png" id="5_vkafh"]
+[ext_resource type="Script" uid="uid://mxrn4l0bnf4k" path="res://scenes/ui scenes/hover_ui_sound.gd" id="6_bvilt"]
+[ext_resource type="AudioStream" uid="uid://dimcf8er32os" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_1.wav" id="7_ewjwl"]
+[ext_resource type="AudioStream" uid="uid://triwmh1a53kf" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_2.wav" id="8_c7yfk"]
+[ext_resource type="AudioStream" uid="uid://cdfclyhvw8un0" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_3.wav" id="9_tf7k4"]
+[ext_resource type="AudioStream" uid="uid://dsx3loogw61h5" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_click.wav" id="10_fles6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_svp2y"]
-texture = ExtResource("4_g8x4e")
+texture = ExtResource("4_e1ucv")
 texture_margin_left = 5.0
 texture_margin_top = 5.0
 texture_margin_right = 5.0
 texture_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1agfe"]
-texture = ExtResource("5_g6t1g")
+texture = ExtResource("5_vkafh")
 texture_margin_left = 5.0
 texture_margin_top = 5.0
 texture_margin_right = 5.0
 texture_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lf8d6"]
-texture = ExtResource("5_g6t1g")
+texture = ExtResource("5_vkafh")
 texture_margin_left = 5.0
 texture_margin_top = 5.0
 texture_margin_right = 5.0
 texture_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_50uwr"]
-texture = ExtResource("5_g6t1g")
+texture = ExtResource("5_vkafh")
 texture_margin_left = 5.0
 texture_margin_top = 5.0
 texture_margin_right = 5.0
@@ -157,7 +157,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ystjd")
+script = ExtResource("1_puc7a")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2141747537]
 layout_mode = 1
@@ -166,7 +166,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_b4npg")
+texture = ExtResource("2_phif0")
 expand_mode = 2
 
 [node name="Start" type="Button" parent="." unique_id=1179702164]
@@ -184,7 +184,7 @@ offset_bottom = -75.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
-theme_override_fonts/font = ExtResource("3_a76v4")
+theme_override_fonts/font = ExtResource("3_4vh3d")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxTexture_svp2y")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_svp2y")
@@ -206,7 +206,7 @@ offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
-theme_override_fonts/font = ExtResource("3_a76v4")
+theme_override_fonts/font = ExtResource("3_4vh3d")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxTexture_svp2y")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_svp2y")
@@ -228,7 +228,7 @@ offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
-theme_override_fonts/font = ExtResource("3_a76v4")
+theme_override_fonts/font = ExtResource("3_4vh3d")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxTexture_svp2y")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_svp2y")
@@ -249,16 +249,16 @@ scale = Vector2(0.3, 0.3)
 texture = SubResource("CompressedTexture2D_w3w8m")
 
 [node name="Node" type="Node" parent="." unique_id=101912238]
-script = ExtResource("6_vu4dl")
+script = ExtResource("6_bvilt")
 
 [node name="SfxUiGmtk26HoverMenu1" type="AudioStreamPlayer" parent="Node" unique_id=1193979693]
-stream = ExtResource("7_rpjrr")
+stream = ExtResource("7_ewjwl")
 
 [node name="SfxUiGmtk26HoverMenu2" type="AudioStreamPlayer" parent="Node" unique_id=1037670171]
-stream = ExtResource("8_etfng")
+stream = ExtResource("8_c7yfk")
 
 [node name="SfxUiGmtk26HoverMenu3" type="AudioStreamPlayer" parent="Node" unique_id=1656010269]
-stream = ExtResource("9_0lw5q")
+stream = ExtResource("9_tf7k4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=121168960]
 libraries/ = SubResource("AnimationLibrary_xcrtt")
@@ -266,7 +266,7 @@ autoplay = &"intro"
 
 [node name="SfxUiGmtk26Click" type="AudioStreamPlayer" parent="." unique_id=229580666]
 unique_name_in_owner = true
-stream = ExtResource("10_nnbdy")
+stream = ExtResource("10_fles6")
 
 [connection signal="mouse_entered" from="Start" to="Node" method="_on_hover"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

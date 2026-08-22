@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://yaapxtil2i1k"]
 
+[ext_resource type="Script" uid="uid://ddnce1trr60xk" path="res://scenes/ui scenes/credits/credits.gd" id="1_gwpb6"]
 [ext_resource type="Texture2D" uid="uid://mjm880ry6b3v" path="res://assets/banner.jpeg" id="2_hca5g"]
 [ext_resource type="FontFile" uid="uid://tigroghm0sss" path="res://assets/PixelatedEleganceRegular-ovawB.ttf" id="3_jfjb0"]
 [ext_resource type="Texture2D" uid="uid://diabn1shat6bd" path="res://assets/Card-layout-hover.png" id="4_es245"]
@@ -37,10 +38,18 @@ texture_margin_top = 5.0
 texture_margin_right = 5.0
 texture_margin_bottom = 5.0
 
-[node name="Credits" type="CanvasLayer" unique_id=1261453320]
+[node name="Credits" type="Control" unique_id=603546904]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gwpb6")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1395593693]
 modulate = Color(0.56028485, 0.56028485, 0.56028485, 1)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -50,6 +59,7 @@ texture = ExtResource("2_hca5g")
 expand_mode = 2
 
 [node name="CreditTitle" type="Label" parent="." unique_id=13861617]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -64,6 +74,7 @@ theme_override_font_sizes/font_size = 34
 text = "Credits"
 
 [node name="Names" type="Label" parent="." unique_id=424666451]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -84,6 +95,7 @@ Thi Romanelli
 Sanny"
 
 [node name="Does" type="Label" parent="." unique_id=1587140675]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -106,6 +118,7 @@ horizontal_alignment = 2
 
 [node name="Back" type="Button" parent="." unique_id=527615781]
 texture_filter = 1
+layout_mode = 0
 offset_left = 34.0
 offset_top = 20.0
 offset_right = 57.0
