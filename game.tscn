@@ -4,4 +4,5 @@
 
 [node name="Game" type="Node" unique_id=79526540]
 script = ExtResource("1_80nbo")
+main_scene = "uid://cueqp5kvayvsf"
 metadata/_custom_type_script = "uid://bfn0xaen48jjs"

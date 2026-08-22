@@ -3,7 +3,6 @@ class_name LoadingScreen
 extends CanvasLayer
 
 signal screen_ready
-signal screen_over
 
 @export var animation: AnimationPlayer
 
@@ -17,4 +16,4 @@ func _ready() -> void:
 func fade_out():
 	animation.play_backwards("fade")
 	await animation.animation_finished
-	screen_over.emit()
+	queue_free()
