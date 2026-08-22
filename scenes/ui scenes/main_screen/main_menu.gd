@@ -10,9 +10,9 @@ func _on_start_pressed() -> void:
 
 func _on_level_select_pressed() -> void:
 	%SfxUiGmtk26Click.play()
-	Game.current.load_scene("uid://bvrc1ordodcvm")
+	Game.current.load_scene(Game.SCENE_PATHS.menu.level_select)
 
 
 func _on_credits_pressed() -> void:
 	%SfxUiGmtk26Click.play()
-	Game.current.load_scene("uid://yaapxtil2i1k")
+	Game.current.load_scene(Game.SCENE_PATHS.menu.credits)

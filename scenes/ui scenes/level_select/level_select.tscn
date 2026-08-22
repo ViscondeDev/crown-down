@@ -119,7 +119,8 @@ theme_override_fonts/font = ExtResource("1_1cam0")
 theme_override_font_sizes/font_size = 21
 text = "Level Select"
 
-[node name="GridContainer" type="GridContainer" parent="." unique_id=1894345993]
+[node name="LevelList" type="GridContainer" parent="." unique_id=1894345993]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -136,7 +137,7 @@ theme_override_constants/h_separation = 12
 theme_override_constants/v_separation = 12
 columns = 4
 
-[node name="Level1" type="Button" parent="GridContainer" unique_id=85703862]
+[node name="Level1" type="Button" parent="LevelList" unique_id=85703862]
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
@@ -149,7 +150,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_7227p")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_42eru")
 text = "1"
 
-[node name="Level2" type="Button" parent="GridContainer" unique_id=1442056317]
+[node name="Level2" type="Button" parent="LevelList" unique_id=1442056317]
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
@@ -163,7 +164,7 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_42eru")
 text = "2
 "
 
-[node name="Level3" type="Button" parent="GridContainer" unique_id=940911996]
+[node name="Level3" type="Button" parent="LevelList" unique_id=940911996]
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
@@ -176,7 +177,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_7227p")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_42eru")
 text = "3"
 
-[node name="Level4" type="Button" parent="GridContainer" unique_id=1422937374]
+[node name="Level4" type="Button" parent="LevelList" unique_id=1422937374]
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
@@ -189,7 +190,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_7227p")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_42eru")
 text = "4"
 
-[node name="Level5" type="Button" parent="GridContainer" unique_id=897345374]
+[node name="Level5" type="Button" parent="LevelList" unique_id=897345374]
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
@@ -202,7 +203,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_7227p")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_42eru")
 text = "5"
 
-[node name="Level6" type="Button" parent="GridContainer" unique_id=1783519374]
+[node name="Level6" type="Button" parent="LevelList" unique_id=1783519374]
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
@@ -215,7 +216,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_7227p")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_42eru")
 text = "6"
 
-[node name="Level7" type="Button" parent="GridContainer" unique_id=401481426]
+[node name="Level7" type="Button" parent="LevelList" unique_id=401481426]
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
@@ -228,7 +229,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_7227p")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_42eru")
 text = "7"
 
-[node name="Level8" type="Button" parent="GridContainer" unique_id=1729855768]
+[node name="Level8" type="Button" parent="LevelList" unique_id=1729855768]
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.92941177, 0.9098039, 0.80784315, 1)
@@ -291,21 +292,13 @@ stream = ExtResource("11_evxlk")
 unique_name_in_owner = true
 stream = ExtResource("12_336ro")
 
-[connection signal="mouse_entered" from="GridContainer/Level1" to="HoverSound" method="_on_hover"]
-[connection signal="pressed" from="GridContainer/Level1" to="." method="_on_level_select" binds= [1]]
-[connection signal="mouse_entered" from="GridContainer/Level2" to="HoverSound" method="_on_hover"]
-[connection signal="pressed" from="GridContainer/Level2" to="." method="_on_level_select" binds= [1]]
-[connection signal="mouse_entered" from="GridContainer/Level3" to="HoverSound" method="_on_hover"]
-[connection signal="pressed" from="GridContainer/Level3" to="." method="_on_level_select" binds= [1]]
-[connection signal="mouse_entered" from="GridContainer/Level4" to="HoverSound" method="_on_hover"]
-[connection signal="pressed" from="GridContainer/Level4" to="." method="_on_level_select" binds= [1]]
-[connection signal="mouse_entered" from="GridContainer/Level5" to="HoverSound" method="_on_hover"]
-[connection signal="pressed" from="GridContainer/Level5" to="." method="_on_level_select" binds= [1]]
-[connection signal="mouse_entered" from="GridContainer/Level6" to="HoverSound" method="_on_hover"]
-[connection signal="pressed" from="GridContainer/Level6" to="." method="_on_level_select" binds= [1]]
-[connection signal="mouse_entered" from="GridContainer/Level7" to="HoverSound" method="_on_hover"]
-[connection signal="pressed" from="GridContainer/Level7" to="." method="_on_level_select" binds= [1]]
-[connection signal="mouse_entered" from="GridContainer/Level8" to="HoverSound" method="_on_hover"]
-[connection signal="pressed" from="GridContainer/Level8" to="." method="_on_level_select" binds= [1]]
+[connection signal="mouse_entered" from="LevelList/Level1" to="HoverSound" method="_on_hover"]
+[connection signal="mouse_entered" from="LevelList/Level2" to="HoverSound" method="_on_hover"]
+[connection signal="mouse_entered" from="LevelList/Level3" to="HoverSound" method="_on_hover"]
+[connection signal="mouse_entered" from="LevelList/Level4" to="HoverSound" method="_on_hover"]
+[connection signal="mouse_entered" from="LevelList/Level5" to="HoverSound" method="_on_hover"]
+[connection signal="mouse_entered" from="LevelList/Level6" to="HoverSound" method="_on_hover"]
+[connection signal="mouse_entered" from="LevelList/Level7" to="HoverSound" method="_on_hover"]
+[connection signal="mouse_entered" from="LevelList/Level8" to="HoverSound" method="_on_hover"]
 [connection signal="mouse_entered" from="Back" to="HoverSound" method="_on_hover"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

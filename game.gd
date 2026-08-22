@@ -10,12 +10,22 @@ enum State {
 	PROCESS,
 }
 
+const SCENE_PATHS = {
+	"menus": {
+		"main": "uid://dtw6jyvjmxwop",
+		"level_selection": "uid://dsb1y6l0hltsj",
+		"credits": "uid://yaapxtil2i1k",
+	},
+	"levels": { 1: "uid://c0b31uun0prgp", 2: "uid://cd7127kqu8704", 3: "uid://b8f32pph3xwk5" },
+}
+
 static var current: Game
 
 @export var main_scene: String
 
 var current_state: State
 var current_scene: Node
+
 # Scene Loading parameters
 var _use_sub_threads: bool = true
 var _loading_path: String = ""

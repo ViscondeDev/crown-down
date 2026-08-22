@@ -3,42 +3,19 @@ extends Control
 const SAVE_FILE = "user://save_data.json"
 
 @export var current: int = 0
-@onready var level_buttons: Array[Button] = [
-	$GridContainer/Level1,
-	$GridContainer/Level2,
-	$GridContainer/Level3,
-	$GridContainer/Level4,
-	$GridContainer/Level5,
-	$GridContainer/Level6,
-	$GridContainer/Level7,
-	$GridContainer/Level8,
-]
 
 
 func _ready() -> void:
-	if current > 0:
-		$Back.hide()
-	var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
-	var progress = JSON.parse_string(file.get_as_text())["progress"]
-
-	for i in range(1, len(level_buttons) + 1):
-		level_buttons[i - 1].disabled = i > progress
-		if i > progress:
-			level_buttons[i - 1].mouse_filter = Control.MOUSE_FILTER_IGNORE
-
-
-enum LevelAction {
-	BACK = 0,
-	LEVEL_SELECT = 1,
-}
-signal level_select_action(action: LevelAction, extra)
+	var buttons = %LevelList.get_children()
+	for n in buttons.size():
+		buttons[n].pressed.connect(_on_level_select.bind(n + 1))
 
 
 func _on_back_pressed() -> void:
 	%SfxUiGmtk26BackDeclineButton.play()
-	level_select_action.emit(LevelAction.BACK, 0)
+	Game.current.load_scene(Game.SCENE_PATHS.menu.main)
 
 
 func _on_level_select(level: int) -> void:
 	%SfxUiGmtk26Click.play()
-	level_select_action.emit(LevelAction.LEVEL_SELECT, level)
+	Game.current.load_scene(Game.SCENE_PATHS.levels.level)
