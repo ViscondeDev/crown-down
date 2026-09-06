@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Crown Down"
-run/main_scene="uid://b11hepplc4xnf"
+run/main_scene="uid://c0nj6c1wobhlq"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/image="uid://cvwmjdrixagxm"
 config/icon="uid://boe1tt5834bja"

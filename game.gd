@@ -1,4 +1,4 @@
-@icon("res://addons/at-icons/node/brain.svg")
+@icon("res://addons/at-icons/node/node_graph.svg")
 class_name Game
 extends Node
 

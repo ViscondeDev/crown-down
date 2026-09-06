@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://bt72usok6ahaj" path="res://assets/Smash/Music Batch _v2/LOOP/mus_gmtk26_gameplay_80bpm_mainLoop_percLayer_revtail_Master.wav" id="15_bnpwn"]
 [ext_resource type="AudioStream" uid="uid://c4p5vww812v4q" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_playbutton_drum_roll.wav" id="16_36jdj"]
 
-[node name="Game" type="Node" unique_id=79526540]
+[node name="Root" type="Node" unique_id=79526540]
 script = ExtResource("1_80nbo")
 main_scene = "uid://cueqp5kvayvsf"
 metadata/_custom_type_script = "uid://bfn0xaen48jjs"
