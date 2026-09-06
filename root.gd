@@ -1,5 +1,5 @@
 @icon("res://addons/at-icons/node/node_graph.svg")
-class_name Game
+class_name Root
 extends Node
 
 signal progress_changed(value: float)
@@ -19,7 +19,7 @@ const SCENE_PATHS = {
 	"levels": { 1: "uid://c0b31uun0prgp", 2: "uid://cd7127kqu8704", 3: "uid://b8f32pph3xwk5" },
 }
 
-static var current: Game
+static var current: Root
 
 @export var main_scene: String
 
