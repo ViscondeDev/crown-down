@@ -24,12 +24,13 @@ enum GameState {
 }
 
 @export var level: int = 0
-@onready var power_selections: Array[Button] = [%Knight, %Bishop, %Rook]
-
-@onready var world: Node = %World
 
 var loaded_scene: PackedScene = null
 var current_instance: Node = null
+
+@onready var power_selections: Array[Button] = [%Knight, %Bishop, %Rook]
+
+@onready var world: Node = %World
 
 
 func _ready() -> void:
@@ -38,44 +39,6 @@ func _ready() -> void:
 
 	for i in range(len(power_selections)):
 		power_selections[i].disabled = false
-
-
-func _load_level(to_load: int):
-	if current_instance != null:
-		current_instance.queue_free()
-		loaded_scene = null
-		await get_tree().create_timer(0.5).timeout
-
-	match to_load:
-		1:
-			loaded_scene = load("uid://c0b31uun0prgp")
-			%Intro.play("intro")
-		2:
-			loaded_scene = load("uid://cd7127kqu8704")
-		3:
-			loaded_scene = load("uid://b8f32pph3xwk5")
-		4:
-			loaded_scene = load("uid://dcb5hm4vlwxrt")
-		5:
-			loaded_scene = load("uid://gp4a7dg5qnbj")
-		6:
-			loaded_scene = load("uid://cxuu682y8u0u5")
-		7:
-			loaded_scene = load("uid://bhpmy0u7c80t7")
-		8:
-			loaded_scene = load("uid://ct16xoac3u10i")
-
-	if loaded_scene == null:
-		level_page.emit()
-	else:
-		current_instance = loaded_scene.instantiate()
-		current_instance.state_changed.connect(_update_state)
-		current_instance.update_selection.connect(_update_selection)
-		current_instance.crowns_changed.connect(%Crowns.update)
-		current_instance.kill.connect(_on_ai_death)
-
-		world.add_child(current_instance)
-		Level.current.update_selection.emit(Selection.ROOK, SelectionState.NONE)
 
 
 func _update_state(new_state: GameState):

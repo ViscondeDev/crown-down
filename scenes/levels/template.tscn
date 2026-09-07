@@ -1,0 +1,136 @@
+[gd_scene format=4 uid="uid://b1u3tdgmrtjc4"]
+
+[ext_resource type="Script" uid="uid://i80q3xsk25x1" path="res://scenes/levels/level.gd" id="1_x3f8h"]
+[ext_resource type="TileSet" uid="uid://halyoheq7qe8" path="res://resources/tileset.tres" id="2_6qh8r"]
+[ext_resource type="Script" uid="uid://rnwdf3l1uqdm" path="res://scenes/board/board.gd" id="3_pkh0q"]
+[ext_resource type="Script" uid="uid://ttpxsm6ywhi3" path="res://scenes/board/board_effects.gd" id="4_6vcqa"]
+[ext_resource type="Material" uid="uid://cw6ysfd176bbq" path="res://resources/ashes_shader.tres" id="6_svnb2"]
+[ext_resource type="PackedScene" uid="uid://dr0xjkmav1kfo" path="res://scenes/piece/pawn.tscn" id="7_kfykg"]
+[ext_resource type="PackedScene" uid="uid://x21ueimw1dtn" path="res://scenes/ui scenes/HUD.tscn" id="7_q340j"]
+[ext_resource type="Script" uid="uid://bme1cp2kkltt3" path="res://core/enemy_ai.gd" id="8_sce6r"]
+[ext_resource type="Script" uid="uid://mxrn4l0bnf4k" path="res://scenes/ui scenes/hover_ui_sound.gd" id="17_khqh3"]
+[ext_resource type="AudioStream" uid="uid://dimcf8er32os" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_1.wav" id="18_5ve8w"]
+[ext_resource type="AudioStream" uid="uid://triwmh1a53kf" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_2.wav" id="19_lebmb"]
+[ext_resource type="AudioStream" uid="uid://cdfclyhvw8un0" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_hover_menu_3.wav" id="20_qoo4g"]
+[ext_resource type="AudioStream" uid="uid://bu2sp1v87ktbh" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_gameplay_menu_hover_1.wav" id="21_ihk2t"]
+[ext_resource type="AudioStream" uid="uid://kxu8ahqtfxw4" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_gameplay_menu_hover_2.wav" id="22_kg51l"]
+[ext_resource type="AudioStream" uid="uid://6s2ympvl5nog" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_gameplay_menu_hover_3.wav" id="23_u2xgy"]
+[ext_resource type="AudioStream" uid="uid://dhp01v51ybvkv" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_choose_bishop_button.wav" id="24_keihw"]
+[ext_resource type="AudioStream" uid="uid://cpjj4b3op8bw2" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_choose_knight_button.wav" id="25_qebpb"]
+[ext_resource type="AudioStream" uid="uid://cuoyduaxmb7fr" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_choose_rook_button.wav" id="26_vaq0g"]
+[ext_resource type="AudioStream" uid="uid://dsx3loogw61h5" path="res://assets/Smash/Batch_1_sfx_gmtk_26/sfx_ui_gmtk26_click.wav" id="27_ys6sd"]
+[ext_resource type="Script" uid="uid://b7hcvutnwxc2i" path="res://core/random_sound.gd" id="28_t85vp"]
+[ext_resource type="AudioStream" uid="uid://bpu4ktsvjree8" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_Char_Death_1.wav" id="29_uug4w"]
+[ext_resource type="AudioStream" uid="uid://d3vxfl6ux0hj1" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_Char_Death_2.wav" id="30_vvhcb"]
+[ext_resource type="AudioStream" uid="uid://dgtnwplgspif5" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_Char_Death_3.wav" id="31_p4e6t"]
+[ext_resource type="AudioStream" uid="uid://cysdyo3f1uk7g" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_1.wav" id="32_x26nw"]
+[ext_resource type="AudioStream" uid="uid://cosyyyrps2jih" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_2.wav" id="33_4o0w7"]
+[ext_resource type="AudioStream" uid="uid://bfd3khrfdjm2" path="res://assets/Smash/Batch_2_sfx_gmtk26/sfx_sfx_gmtk26_char_AI_Death_3.wav" id="34_iligs"]
+
+[node name="Level" type="Node2D" unique_id=1820218999]
+y_sort_enabled = true
+script = ExtResource("1_x3f8h")
+metadata/_custom_type_script = "uid://i80q3xsk25x1"
+
+[node name="Board" type="TileMapLayer" parent="." unique_id=2021168563]
+tile_map_data = PackedByteArray("AAAPAAcAAAACAAIAAAAPAAYAAAACAAIAAAAOAAcAAAADAAIAAAAOAAYAAAADAAMAAAANAAcAAAADAAEAAAANAAYAAAADAAEAAAAMAAcAAAADAAMAAAAMAAYAAAADAAEAAAALAAcAAAADAAMAAAALAAYAAAABAAIAAAAKAAcAAAADAAAAAAAKAAYAAAABAAIAAAAJAAcAAAABAAIAAAAJAAYAAAADAAAAAAAOAAgAAAADAAMAAAANAAgAAAADAAMAAAAMAAgAAAADAAAAAAALAAgAAAADAAEAAAAKAAgAAAADAAIAAAAPAAkAAAACAAMAAAAPAAgAAAACAAIAAAAOAAkAAAABAAMAAAANAAkAAAABAAMAAAAMAAkAAAABAAMAAAALAAkAAAABAAMAAAAKAAkAAAABAAMAAAAJAAkAAAABAAMAAAAJAAgAAAADAAEAAAAIAAYAAAADAAAAAAAIAAcAAAADAAAAAAAIAAgAAAADAAMAAAAIAAkAAAABAAMAAAAHAAkAAAAAAAMAAAAHAAgAAAAAAAIAAAAHAAcAAAAAAAIAAAAHAAYAAAAAAAIAAAAHAAUAAAAAAAEAAAAIAAUAAAABAAEAAAAJAAUAAAABAAEAAAAKAAUAAAABAAEAAAALAAUAAAABAAEAAAAMAAUAAAABAAEAAAANAAUAAAABAAEAAAAOAAUAAAABAAEAAAAPAAUAAAACAAEAAAAPAAQAAAACAAAAAAAOAAQAAAABAAAAAAANAAQAAAAAAAAAAAAMAAQAAAACAAAAAAALAAQAAAABAAAAAAAKAAQAAAABAAAAAAAJAAQAAAABAAAAAAAIAAQAAAABAAAAAAAHAAQAAAAAAAAAAAA=")
+tile_set = ExtResource("2_6qh8r")
+script = ExtResource("3_pkh0q")
+
+[node name="BoardEffects" type="TileMapLayer" parent="." unique_id=377712463]
+tile_set = ExtResource("2_6qh8r")
+script = ExtResource("4_6vcqa")
+
+[node name="EnemyAI" type="Node" parent="." unique_id=179269147]
+unique_name_in_owner = true
+script = ExtResource("8_sce6r")
+metadata/_custom_type_script = "uid://bme1cp2kkltt3"
+
+[node name="VFX" type="Node2D" parent="." unique_id=1866410153]
+
+[node name="Particles" type="GPUParticles2D" parent="VFX" unique_id=1774335937]
+unique_name_in_owner = true
+position = Vector2(185, 53.97)
+scale = Vector2(1.85, 1.85)
+amount = 15
+lifetime = 10.0
+process_material = ExtResource("6_svnb2")
+
+[node name="HUD" parent="." unique_id=699810493 instance=ExtResource("7_q340j")]
+
+[node name="Audio" type="Node" parent="." unique_id=342960380]
+
+[node name="HoverSound" type="Node" parent="Audio" unique_id=652460359]
+script = ExtResource("17_khqh3")
+
+[node name="SfxUiGmtk26HoverMenu1" type="AudioStreamPlayer" parent="Audio/HoverSound" unique_id=956312593]
+stream = ExtResource("18_5ve8w")
+
+[node name="SfxUiGmtk26HoverMenu2" type="AudioStreamPlayer" parent="Audio/HoverSound" unique_id=1090202260]
+stream = ExtResource("19_lebmb")
+
+[node name="SfxUiGmtk26HoverMenu3" type="AudioStreamPlayer" parent="Audio/HoverSound" unique_id=539981012]
+stream = ExtResource("20_qoo4g")
+
+[node name="HoverSoundGameplay" type="Node" parent="Audio" unique_id=1519668934]
+script = ExtResource("17_khqh3")
+
+[node name="SfxUiGmtk26GameplayMenuHover1" type="AudioStreamPlayer" parent="Audio/HoverSoundGameplay" unique_id=767095911]
+stream = ExtResource("21_ihk2t")
+
+[node name="SfxUiGmtk26GameplayMenuHover2" type="AudioStreamPlayer" parent="Audio/HoverSoundGameplay" unique_id=1205958029]
+stream = ExtResource("22_kg51l")
+
+[node name="SfxUiGmtk26GameplayMenuHover3" type="AudioStreamPlayer" parent="Audio/HoverSoundGameplay" unique_id=2037321111]
+stream = ExtResource("23_u2xgy")
+
+[node name="SfxUiGmtk26ChooseBishopButton" type="AudioStreamPlayer" parent="Audio" unique_id=986176229]
+unique_name_in_owner = true
+stream = ExtResource("24_keihw")
+volume_db = 3.0
+
+[node name="SfxUiGmtk26ChooseKnightButton" type="AudioStreamPlayer" parent="Audio" unique_id=1565399266]
+unique_name_in_owner = true
+stream = ExtResource("25_qebpb")
+volume_db = 3.0
+
+[node name="SfxUiGmtk26ChooseRookButton" type="AudioStreamPlayer" parent="Audio" unique_id=231376824]
+unique_name_in_owner = true
+stream = ExtResource("26_vaq0g")
+volume_db = 3.0
+
+[node name="SfxUiGmtk26Click" type="AudioStreamPlayer" parent="Audio" unique_id=1505991796]
+unique_name_in_owner = true
+stream = ExtResource("27_ys6sd")
+
+[node name="DeathSound" type="Node" parent="Audio" unique_id=52030168]
+unique_name_in_owner = true
+script = ExtResource("28_t85vp")
+metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
+
+[node name="SfxSfxGmtk26CharCharDeath1" type="AudioStreamPlayer" parent="Audio/DeathSound" unique_id=602125259]
+stream = ExtResource("29_uug4w")
+
+[node name="SfxSfxGmtk26CharCharDeath2" type="AudioStreamPlayer" parent="Audio/DeathSound" unique_id=643225628]
+stream = ExtResource("30_vvhcb")
+
+[node name="SfxSfxGmtk26CharCharDeath3" type="AudioStreamPlayer" parent="Audio/DeathSound" unique_id=1495273226]
+stream = ExtResource("31_p4e6t")
+
+[node name="AIDeath" type="Node" parent="Audio" unique_id=675632911]
+unique_name_in_owner = true
+script = ExtResource("28_t85vp")
+metadata/_custom_type_script = "uid://b7hcvutnwxc2i"
+
+[node name="SfxSfxGmtk26CharAiDeath1" type="AudioStreamPlayer" parent="Audio/AIDeath" unique_id=530047850]
+stream = ExtResource("32_x26nw")
+
+[node name="SfxSfxGmtk26CharAiDeath2" type="AudioStreamPlayer" parent="Audio/AIDeath" unique_id=1181829406]
+stream = ExtResource("33_4o0w7")
+
+[node name="SfxSfxGmtk26CharAiDeath3" type="AudioStreamPlayer" parent="Audio/AIDeath" unique_id=1375924667]
+stream = ExtResource("34_iligs")
+
+[node name="Pawn" parent="." unique_id=619880526 instance=ExtResource("7_kfykg")]
+unique_name_in_owner = true
+position = Vector2(152, 112)

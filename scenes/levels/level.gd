@@ -10,8 +10,8 @@ signal kill(crowns: int)
 enum State {
 	LOADING = 0,
 	SELECTION = 1,
-	MOVEMENT = 2,
-	ENEMY = 3,
+	PAWN_TURN = 2,
+	ENEMY_TURN = 3,
 	WON = 4,
 	LOST = 5,
 }
@@ -29,13 +29,14 @@ enum SelectionState {
 static var current: Level
 
 @export var pawn_selection: Selection = Selection.KNIGHT
-@onready var pawn: Pawn = %Pawn
-@onready var enemie_ai: EnemyAI = %EnemyAI
 
 var current_state: State = State.LOADING:
 	set(s):
 		current_state = s
 		state_changed.emit(current_state)
+
+@onready var pawn: Pawn = %Pawn
+@onready var enemie_ai: EnemyAI = %EnemyAI
 
 
 func _ready() -> void:
@@ -50,12 +51,16 @@ func _ready() -> void:
 
 func finish_turn() -> void:
 	match current_state:
-		State.MOVEMENT:
-			current_state = State.ENEMY
+		State.PAWN_TURN:
+			current_state = State.ENEMY_TURN
 			crowns_changed.emit(Board.current_board.pieces.size() - 1)
-		State.ENEMY:
+		State.ENEMY_TURN:
 			update_selection.emit(Selection.BISHOP, SelectionState.NONE)
 			current_state = State.SELECTION
+
+
+func restart_level() -> void:
+	Root.current.load_scene(scene_file_path)
 
 
 func end_game(state: State) -> void:

@@ -16,7 +16,16 @@ const SCENE_PATHS = {
 		"level_selection": "uid://bvrc1ordodcvm",
 		"credits": "uid://yaapxtil2i1k",
 	},
-	"levels": { 1: "uid://c0b31uun0prgp", 2: "uid://cd7127kqu8704", 3: "uid://b8f32pph3xwk5" },
+	"levels": {
+		1: "uid://c0b31uun0prgp",
+		2: "uid://cd7127kqu8704",
+		3: "uid://b8f32pph3xwk5",
+		4: "uid://dcb5hm4vlwxrt",
+		5: "uid://gp4a7dg5qnbj",
+		6: "uid://cxuu682y8u0u5",
+		7: "uid://bhpmy0u7c80t7",
+		8: "uid://ct16xoac3u10i",
+	},
 }
 
 static var current: Root
